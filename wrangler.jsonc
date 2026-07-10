@@ -1,0 +1,9 @@
+{
+  // Cloudflare config for deploying the static Astro site (assets-only Worker).
+  // The build (`npm run build`) outputs to ./dist, which Cloudflare serves as static files.
+  "name": "roboburger-main-site",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
