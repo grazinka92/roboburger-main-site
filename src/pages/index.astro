@@ -1,10 +1,293 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const locations = [
+  'Malls', 'Airports', 'Universities', 'Office Buildings',
+  'Hospitals', 'Hotels', 'Tourist Sites', 'Stadiums',
+  'Cinemas', 'Amusement Parks', 'Train Stations', 'Gas Stations',
+  'Gyms', 'Convenience Stores', 'Event Venues', 'Industrial Zones',
+];
+
+const features = [
+  {
+    title: '24/7 Hot Food, No Staff Needed',
+    text: "RoboBurger operates reliably around the clock, solving labor shortages in locations where kitchens can't go.",
+  },
+  {
+    title: 'Low-Cost, High Return Model',
+    text: 'Own multiple units for less than one restaurant; scalable, profitable, and ideal for modern food entrepreneurs.',
+  },
+  {
+    title: 'Compact & Kitchen Free',
+    text: 'Only 10 sq. ft., no kitchen buildout or grease trap, just plug in and serve real burgers anywhere.',
+  },
+];
+
+const stats = [
+  { label: 'Limited Launch', value: 'Only 200 machines available' },
+  { label: 'Secure Yours Today', value: 'Pay just $5,000 upfront' },
+  { label: 'Special Pre-Order Price', value: '$27,500' },
+];
+
+const testimonials = [
+  { quote: 'This burger is really good!', name: 'Lori Greiner', role: 'Shark Tank' },
+  { quote: 'This is a big idea!', name: 'Michael Rubin', role: 'Shark Tank' },
+];
+
+const gallery = [
+  { src: '/images/machine.png', alt: 'RoboBurger machine' },
+  { src: '/images/newport.png', alt: 'RoboBurger installed at a location' },
+  { src: '/images/frame-61.jpg', alt: 'RoboBurger in use' },
+  { src: '/images/product-web.webp', alt: 'RoboBurger Gen 3' },
+  { src: '/images/mask-group.png', alt: 'RoboBurger burger' },
+];
 ---
-<BaseLayout title="RoboBurger" description="The first and only fully autonomous burger machine.">
-  <section class="container" style="padding: 4rem 1rem;">
-    <h1>RoboBurger — build in progress</h1>
-    <p>Foundation ready: layout, header, footer, fonts, and brand colors.</p>
-    <a class="btn btn-primary" href="/contact-us/">Contact Us To Reserve</a>
+<BaseLayout
+  title="RoboBurger"
+  description="RoboBurger is the world's first fully autonomous burger machine — grilling and serving fresh, hot burgers on demand, with no staff, kitchen, or ventilation."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>The World's First Burger Chef In a Vending Format</h1>
+        <p>
+          RoboBurger™ is the first and only fully autonomous burger machine that grills and serves
+          fresh, hot burgers on demand. Compact, self cleaning, and certified for food and electrical
+          safety, it operates without staff, kitchen, or ventilation. Backed by multiple patents and
+          global interest from leading food, retail, and tech companies.
+        </p>
+        <a href="/contact-us/" class="btn btn-primary">Contact us</a>
+      </div>
+      <div class="hero-media">
+        <img src="/images/machine.png" alt="RoboBurger autonomous burger machine" width="520" height="620" />
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE PROPOSITION -->
+  <section class="section value">
+    <div class="container">
+      <h2 class="section-title">Innovation, Revenue, and Real Value</h2>
+      <p class="section-lead">
+        Bring innovation and revenue to your location, or launch a new business with a single machine.
+        RoboBurger delivers hot, fresh grilled burgers from a fully automated robot, creating a
+        futuristic food experience that attracts attention, delights customers, and generates consistent
+        income. With low startup costs, no staff, and easy setup, it's the smartest way to grow your
+        business or start one that people can't ignore.
+      </p>
+      <ul class="locations">
+        {locations.map((loc) => <li>{loc}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRODUCT BANNER -->
+  <section class="banner" style={`background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/frame-61.jpg');`}>
+    <div class="container">
+      <h2>A Chef. A Kitchen. A Business. In a Box</h2>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES -->
+  <section class="section features">
+    <div class="container">
+      <h2 class="section-title">RoboBurger: The Game Changing Burger Robot</h2>
+      <p class="section-lead">Scalable, flexible, and built for the future of food.</p>
+      <div class="feature-grid">
+        {features.map((f) => (
+          <article class="feature-card">
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRE-ORDER GEN 3 -->
+  <section class="section preorder">
+    <div class="container preorder-inner">
+      <div class="preorder-media">
+        <img src="/images/product-web.webp" alt="RoboBurger Gen 3" width="480" height="480" />
+      </div>
+      <div class="preorder-copy">
+        <h2>Pre Order RoboBurger Gen 3</h2>
+        <p>
+          Gen 3 is finally here faster, smaller, higher capacity, more menu options, and upgraded
+          quality. This is the first RoboBurger designed for mass production and global expansion.
+        </p>
+        <div class="preorder-cta">
+          <a href="/contact-us/" class="btn btn-primary">Contact Us To Reserve</a>
+          <a href="/contact-us/" class="btn btn-outline">Contact Us</a>
+        </div>
+        <p class="preorder-note">* Only 128 out of 200 are still available for pre-order.</p>
+        <ul class="stats">
+          {stats.map((s) => (
+            <li>
+              <span class="stat-label">{s.label}</span>
+              <span class="stat-value">{s.value}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="testimonial-grid">
+        {testimonials.map((t) => (
+          <figure class="testimonial">
+            <blockquote>“{t.quote}”</blockquote>
+            <figcaption><strong>{t.name}</strong>, {t.role}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section gallery-section">
+    <div class="container">
+      <h2 class="section-title">RoboBurger Gallery</h2>
+      <div class="gallery">
+        {gallery.map((g) => (
+          <div class="gallery-item"><img src={g.src} alt={g.alt} loading="lazy" /></div>
+        ))}
+      </div>
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .section { padding: 4rem 0; }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    text-align: center;
+  }
+  .section-lead {
+    max-width: 820px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: var(--color-text);
+    font-size: 1.1rem;
+  }
+
+  /* HERO */
+  .hero { background: var(--color-light); padding: 3.5rem 0; }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .hero-copy h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+  }
+  .hero-copy p { font-size: 1.12rem; color: var(--color-text); margin-bottom: 1.75rem; max-width: 34rem; }
+  .hero-media img { margin-inline: auto; max-height: 620px; width: auto; object-fit: contain; }
+
+  /* VALUE */
+  .value { background: var(--color-white); }
+  .locations {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+    max-width: 900px; margin-inline: auto;
+  }
+  .locations li {
+    background: var(--color-light);
+    color: var(--color-heading);
+    border: 1px solid #dde7ef;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  /* BANNER */
+  .banner {
+    background-size: cover;
+    background-position: center;
+    color: var(--color-white);
+    text-align: center;
+    padding: 5rem 0;
+  }
+  .banner h2 {
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.7rem, 4.5vw, 3rem);
+  }
+
+  /* FEATURES */
+  .features { background: var(--color-white); }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .feature-card {
+    border: 1px solid #ececec;
+    border-top: 4px solid var(--color-red);
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
+    background: var(--color-white);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  }
+  .feature-card h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+  .feature-card p { color: var(--color-text); margin: 0; }
+
+  /* PRE-ORDER */
+  .preorder { background: var(--color-black); color: #e6e6e6; }
+  .preorder-inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .preorder-media img { margin-inline: auto; border-radius: 12px; }
+  .preorder-copy h2 { color: var(--color-white); font-family: var(--font-display); font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+  .preorder-copy p { color: #cfcfcf; font-size: 1.08rem; }
+  .preorder-cta { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
+  .preorder .btn-outline { border-color: var(--color-white); color: var(--color-white); }
+  .preorder .btn-outline:hover { background: var(--color-white); color: var(--color-black); }
+  .preorder-note { font-size: 0.95rem; color: var(--color-yellow); }
+  .stats { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1rem; }
+  .stats li { display: flex; flex-direction: column; padding: 1rem 1.25rem; background: #141414; border-left: 4px solid var(--color-red); border-radius: 6px; }
+  .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: #9a9a9a; }
+  .stat-value { font-size: 1.2rem; font-weight: 700; color: var(--color-white); }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--color-light); }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 900px; margin-inline: auto; }
+  .testimonial { margin: 0; background: var(--color-white); border-radius: 12px; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.05); text-align: center; }
+  .testimonial blockquote { margin: 0 0 1rem; font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; color: var(--color-heading); }
+  .testimonial figcaption { color: var(--color-muted); }
+  .testimonial figcaption strong { color: var(--color-red); }
+
+  /* GALLERY */
+  .gallery-section { background: var(--color-white); }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .gallery-item { overflow: hidden; border-radius: 10px; background: var(--color-light); aspect-ratio: 4 / 3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner, .preorder-inner { grid-template-columns: 1fr; }
+    .hero-media { order: -1; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .gallery { grid-template-columns: 1fr; }
+  }
+</style>
