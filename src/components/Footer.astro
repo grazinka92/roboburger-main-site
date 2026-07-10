@@ -1,0 +1,102 @@
+---
+const pages = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about/' },
+  { label: 'Product', href: '/our-product/' },
+  { label: 'Invest', href: '/investor/' },
+  { label: 'Sweet Robo', href: 'https://sweetrobo.com/', external: true },
+  { label: 'Contact Us', href: '/contact-us/' },
+];
+const legal = [
+  { label: 'Terms & Services', href: '/terms-services/' },
+  { label: 'Privacy Policy', href: '/privacy-policy/' },
+  { label: 'Cookies Policy', href: '/cookies-policy/' },
+];
+const social = [
+  { label: 'Instagram', href: 'https://www.instagram.com/roboburger?igsh=ZWFuOG1tMzd3Znl6' },
+  { label: 'Facebook', href: 'https://www.facebook.com/share/1AbhsJLYSs/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/roboburger-inc/' },
+  { label: 'YouTube', href: 'https://youtube.com/@theroboburger2700?si=aQMdVVGpW7MvYJEK' },
+];
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="/logo.png" alt="RoboBurger" class="footer-logo" width="160" height="43" />
+      <address class="footer-contact">
+        <p>132 32nd St Brooklyn NY 11232</p>
+        <p><a href="tel:+18668053330">1 (866) 805-3330</a></p>
+        <p><a href="mailto:Sales@RoboBurger.com">Sales@RoboBurger.com</a></p>
+      </address>
+      <ul class="social">
+        {social.map((s) => (
+          <li><a href={s.href} target="_blank" rel="noopener">{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <nav class="footer-col" aria-label="Pages">
+      <h3>Pages</h3>
+      <ul>
+        {pages.map((p) => (
+          <li>
+            <a href={p.href} {...(p.external ? { target: '_blank', rel: 'noopener' } : {})}>{p.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav class="footer-col" aria-label="Legal">
+      <h3>Legal</h3>
+      <ul>
+        {legal.map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {new Date().getFullYear()} RoboBurger. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-black);
+    color: #cfcfcf;
+    padding-top: 3rem;
+    margin-top: 3rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+  .footer-logo { height: 43px; width: auto; margin-bottom: 1rem; }
+  .footer-contact { font-style: normal; margin-bottom: 1rem; }
+  .footer-contact p { margin: 0 0 0.35rem; }
+  .footer-contact a:hover { color: var(--color-white); }
+
+  .social { list-style: none; display: flex; gap: 1rem; padding: 0; margin: 0; }
+  .social a { color: #cfcfcf; }
+  .social a:hover { color: var(--color-red); text-decoration: none; }
+
+  .footer-col h3 { color: var(--color-white); font-size: 1.05rem; margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a:hover { color: var(--color-white); }
+
+  .footer-bottom {
+    border-top: 1px solid #2a2a2a;
+    padding: 1.25rem 0;
+    font-size: 0.85rem;
+    color: #9a9a9a;
+  }
+  .footer-bottom p { margin: 0; }
+
+  @media (max-width: 800px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+</style>

@@ -1,0 +1,116 @@
+---
+const nav = [
+  { label: 'Home', href: '/' },
+  { label: 'Product', href: '/our-product/' },
+  { label: 'About Us', href: '/about/' },
+  { label: 'Sweet Robo', href: 'https://sweetrobo.com/', external: true },
+  { label: 'Invest', href: '/investor/' },
+  { label: 'Contact Us', href: '/contact-us/' },
+];
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="RoboBurger home">
+      <img src="/logo.png" alt="RoboBurger" width="150" height="40" />
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          class:list={['nav-link', { active: !item.external && path === item.href }]}
+          {...(item.external ? { target: '_blank', rel: 'noopener' } : {})}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/contact-us/" class="btn btn-primary nav-cta">Contact Us To Reserve</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-white);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 72px;
+  }
+  .logo img { height: 40px; width: auto; }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .nav-link {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-heading);
+  }
+  .nav-link:hover { color: var(--color-red); text-decoration: none; }
+  .nav-link.active { color: var(--color-red); }
+  .nav-cta { margin-left: 0.5rem; }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block;
+    height: 3px;
+    width: 24px;
+    background: var(--color-heading);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  @media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+    .site-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: var(--color-white);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      padding: 0.5rem 1rem 1rem;
+      display: none;
+    }
+    .site-nav.open { display: flex; }
+    .nav-link { padding: 0.75rem 0; border-bottom: 1px solid #eee; }
+    .nav-cta { margin: 0.75rem 0 0; text-align: center; }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!!open));
+  });
+</script>
