@@ -5,7 +5,6 @@ const nav = [
   { label: 'About Us', href: '/about/' },
   { label: 'Sweet Robo', href: 'https://sweetrobo.com/', external: true },
   { label: 'Invest', href: '/investor/' },
-  { label: 'Contact Us', href: '/contact-us/' },
 ];
 const path = Astro.url.pathname;
 ---
@@ -29,7 +28,7 @@ const path = Astro.url.pathname;
           {item.label}
         </a>
       ))}
-      <a href="/contact-us/" class="btn btn-primary nav-cta">Contact Us To Reserve</a>
+      <a href="/contact-us/" class="btn btn-primary nav-cta">Contact us</a>
     </nav>
   </div>
 </header>

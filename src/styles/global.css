@@ -64,16 +64,18 @@ p { margin: 0 0 1em; }
 /* Basic button helpers matching the brand (refine per live site during page build) */
 .btn {
   display: inline-block;
-  padding: 0.85em 1.75em;
+  padding: 0.9em 2.2em;
   font-weight: 700;
-  border-radius: 4px;
+  border-radius: 999px;
   cursor: pointer;
   border: 2px solid transparent;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
 }
 .btn:hover { text-decoration: none; }
-.btn-primary { background: var(--color-red); color: var(--color-white); }
-.btn-primary:hover { background: var(--color-red-dark); }
+.btn:active { transform: translateY(1px); }
+/* Primary CTA = brand yellow pill with dark text (matches header + hero) */
+.btn-primary { background: var(--color-yellow); color: var(--color-black); }
+.btn-primary:hover { background: #ffd42e; color: var(--color-black); }
 .btn-outline { background: transparent; border-color: var(--color-red); color: var(--color-red); }
 .btn-outline:hover { background: var(--color-red); color: var(--color-white); }
 
