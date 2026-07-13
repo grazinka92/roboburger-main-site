@@ -1,0 +1,311 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const specsA = [
+  { label: 'Capacity', value: 'Approximately 70 burgers per refill' },
+  { label: 'Electricity', value: '220V 11A, 110V 22A' },
+  { label: 'Dimensions', value: 'H 233 / W 145 / D 75 cm — H 91.7 / W 57.09 / D 29.53 in' },
+];
+
+const specsB = [
+  { label: 'Capacity', value: 'Approximately 70 burgers per refill' },
+  { label: 'Electricity', value: '220V 30 amp' },
+  { label: 'Dimensions', value: 'H 130 / W 185 / D 71 cm — H 73 / W 51 / D 28 in' },
+];
+
+const features = [
+  { img: '/images/features/work-1.gif', title: 'No Plumbing Required', text: 'Install anywhere using just a standard outlet.' },
+  { img: '/images/features/mop.gif', title: 'Self-Cleaning System', text: 'Maintains hygiene without extra labor.' },
+  { img: '/images/features/camera.gif', title: 'Built in Cameras', text: 'Ensure quality and security at all times.' },
+  { img: '/images/features/evidence.gif', title: 'Real Time Viewing', text: 'Watch every burger being made fresh' },
+  { img: '/images/features/plug-and-play.gif', title: 'Plug & Play', text: 'Quick setup for instant business launch.' },
+  { img: '/images/features/menu.gif', title: 'Customizable Menu', text: 'Adapt meals to match customer tastes.' },
+  { img: '/images/features/customer-support.gif', title: 'Remote Monitoring', text: 'Track and control operations online.' },
+  { img: '/images/features/certificate-authority-2.gif', title: 'Patented Technology', text: 'Exclusive system with proven innovation.' },
+];
+
+const benefits = [
+  'Low operating costs',
+  'High customer engagement',
+  'No need for kitchen space or staff',
+  'Real food with real margins',
+  'Easy to maintain and monitor remotely',
+  'Scalable from 1 to 100+ units',
+];
+
+const gen3Features = [
+  { icon: '/images/prod-capacity.png', text: 'Higher production capacity — more burgers per refill' },
+  { text: 'Striking new design — sleek, modern, and eye-catching' },
+  { icon: '/images/prod-window.png', text: 'Live viewing window — lets customers see part of the cooking process' },
+  { text: 'Compact footprint — fits easily in high-traffic locations' },
+];
+
+const stats = [
+  { icon: 'rocket', text: 'Limited Launch: Only 200 machines available' },
+  { icon: 'coins', text: 'Secure Yours Today: Pay just $5,000 upfront' },
+  { icon: 'tag', text: 'Special Pre-Order Price: $27,500' },
+];
+---
+<BaseLayout
+  title="Our Product | RoboBurger"
+  description="Discover the Future of Burgers — Enjoy Fresh, Hot, Perfectly Crafted Burgers Made by Our Cutting Edge Robotic Technology."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Our Product</h1>
+        <p>Discover the Future of Burgers. Enjoy fresh, hot, perfectly crafted burgers made by our cutting edge robotic technology.</p>
+      </div>
+      <div class="hero-media">
+        <img src="/images/prod-machine-1.png" alt="RoboBurger autonomous burger machine" width="420" height="500" />
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTONOMOUS KITCHEN BANNER -->
+  <section class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/prod-screen-2.png');">
+    <div class="container">
+      <h2>The Autonomous Burger Kitchen</h2>
+      <p>Serve Real Burgers. No Staff. No Kitchen. Just Plug It In.</p>
+      <a href="/contact-us/" class="btn btn-primary">Own One</a>
+    </div>
+  </section>
+
+  <!-- DESCRIPTION + SPECS A -->
+  <section class="section desc">
+    <div class="container desc-inner">
+      <div>
+        <h2 class="section-title-left">A Plug &amp; Go Burger Restaurant in Miniature</h2>
+        <p class="desc-text">
+          RoboBurger is a revolutionary food automation kiosk that grills fresh, gourmet burgers in
+          approximately 3.5 minutes no staff, no kitchen, no complications. This compact, 10 square foot
+          unit is fully self-operating and self-cleaning. Inside, RoboBurger integrates refrigeration,
+          grilling, assembly, and packaging systems into a single automated solution. The machine toasts
+          the bun, grills the patty, and assembles the burger in a sealed box all autonomously. Condiments
+          and toppings are provided separately in portioned packets, allowing customers to select from
+          multiple options. The unit includes secure digital payments, real-time cloud monitoring for
+          inventory and performance, and is designed to meet food safety standards with minimal on-site
+          servicing.
+        </p>
+        <ul class="spec-list">
+          {specsA.map((s) => (<li><strong>{s.label}:</strong> {s.value}</li>))}
+        </ul>
+      </div>
+      <div class="desc-media">
+        <img src="/images/prod-select.png" alt="Customer receiving a fresh RoboBurger" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU CUSTOMIZATION (ready-made image) -->
+  <section class="section menu-custom">
+    <div class="container">
+      <img src="/images/prod-frame-53.png" alt="Menu customization: 3 patty options, toasted bun, 3 topping types, 6 sauce choices" loading="lazy" class="menu-grid-img" />
+    </div>
+  </section>
+
+  <!-- SPECS B -->
+  <section class="section specs-b">
+    <div class="container">
+      <ul class="spec-list centered">
+        {specsB.map((s) => (<li><strong>{s.label}:</strong> {s.value}</li>))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES GRID (8) -->
+  <section class="section features8">
+    <div class="container">
+      <h2 class="section-title">Comprehensive, Compact, and One of a Kind</h2>
+      <div class="features8-grid">
+        {features.map((f) => (
+          <article class="feature8-card">
+            <img src={f.img} alt="" aria-hidden="true" loading="lazy" />
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS BENEFITS -->
+  <section class="section benefits">
+    <div class="container">
+      <h2 class="section-title">RoboBurger isn't just a machine it's a business in a box.</h2>
+      <p class="section-lead">
+        Whether you're a property owner or an entrepreneur, RoboBurger gives you a powerful way to serve
+        food, generate income, and grow a brand people remember.
+      </p>
+      <ul class="benefits-list">
+        {benefits.map((b) => <li>{b}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- GEN 3 INFO -->
+  <section class="section gen3-info">
+    <div class="container">
+      <h2 class="section-title">What's New in Gen 3</h2>
+      <p class="section-lead">
+        The third generation of RoboBurger brings major upgrades designed for scale, performance, and
+        visual impact.
+      </p>
+      <p class="gen3-preorder-note">
+        We're now accepting pre-orders for the next production wave. Only 200 Gen-3 machines in the
+        first batch — now over half reserved. <strong>128 units still available.</strong> Reserve with
+        just $5,000 down.
+      </p>
+      <ul class="gen3-features">
+        {gen3Features.map((f) => (
+          <li>
+            {f.icon && <img src={f.icon} alt="" aria-hidden="true" class="gen3-icon" />}
+            <span>{f.text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRE-ORDER GEN 3 CTA -->
+  <section class="preorder">
+    <div class="container preorder-inner">
+      <div class="preorder-copy">
+        <h2>Pre Order<br />RoboBurger Gen 3</h2>
+        <p>
+          Gen 3 is finally here faster, smaller, higher capacity, more menu options, and upgraded
+          quality. This is the first RoboBurger designed for mass production and global expansion.
+        </p>
+        <a href="/contact-us/" class="btn btn-primary preorder-cta">Contact Us To Reserve</a>
+        <div class="preorder-count"><span class="big-num">128</span></div>
+        <p class="preorder-note">Only 128 out of 200 are still available for pre order.</p>
+      </div>
+      <ul class="stat-cards">
+        {stats.map((s) => (
+          <li class="stat-card">
+            <span class="stat-ic"><img src={`/images/icon-${s.icon}.png`} alt="" aria-hidden="true" /></span>
+            <span class="stat-txt">{s.text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- REVOLUTION -->
+  <section class="section revolution">
+    <div class="container">
+      <h2 class="section-title">Be Part of the Food Automation Revolution</h2>
+      <p class="section-lead">
+        The future of food isn't coming it's already here. Automated kitchens are transforming how,
+        where, and when people eat. RoboBurger is at the forefront of this shift, offering not just a new
+        way to serve food, but a new way to think about food businesses altogether. Whether you're an
+        early adopter or a visionary entrepreneur, this is your moment to lead. Join the movement that's
+        changing the face of food.
+      </p>
+      <a href="/contact-us/" class="btn btn-primary">Join the Revolution</a>
+    </div>
+  </section>
+
+  <!-- BROCHURE -->
+  <section class="section brochure">
+    <div class="container brochure-inner">
+      <img src="/images/product-web.webp" alt="RoboBurger brochure cover" loading="lazy" class="brochure-thumb" />
+      <div>
+        <h2 class="section-title-left">Product brochure</h2>
+        <p class="desc-text">New Updated Robo Burger Brochure</p>
+        <a href="/robo-burger-brochure.pdf" target="_blank" download class="btn btn-primary">Download Now</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section { padding: 4.5rem 0; }
+  .section-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.8rem); text-align: center; line-height: 1.1; margin-bottom: 1rem; }
+  .section-title-left { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.15; margin-bottom: 1.25rem; }
+  .section-lead { max-width: 860px; margin: 0 auto 1.5rem; text-align: center; color: var(--color-text); font-size: 1.1rem; }
+
+  /* HERO */
+  .hero { background: #fadbdc; padding: 3rem 0; }
+  .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 2rem; }
+  .hero-copy h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 5vw, 3.4rem); margin-bottom: 1rem; }
+  .hero-copy p { font-family: 'Poppins', sans-serif; font-size: 20px; color: #000; max-width: 34rem; }
+  .hero-media img { margin-inline: auto; max-height: 500px; width: auto; object-fit: contain; }
+
+  /* BANNER */
+  .banner { background-size: cover; background-position: center; color: var(--color-white); text-align: center; padding: 5rem 0; }
+  .banner h2 { color: var(--color-white); font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 2.8rem); margin-bottom: 0.75rem; }
+  .banner p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+  /* DESCRIPTION + SPECS */
+  .desc { background: var(--color-white); }
+  .desc-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; }
+  .desc-text { color: #000; font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; margin-bottom: 1.5rem; }
+  .desc-media img { width: 100%; border-radius: 12px; }
+  .spec-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+  .spec-list li { font-size: 0.98rem; color: var(--color-text); }
+  .spec-list.centered { text-align: center; max-width: 700px; margin-inline: auto; }
+
+  /* MENU CUSTOMIZATION */
+  .menu-custom { background: var(--color-white); padding-top: 0; }
+  .menu-grid-img { max-width: 700px; width: 100%; margin-inline: auto; display: block; }
+
+  /* SPECS B */
+  .specs-b { background: var(--color-light); }
+
+  /* FEATURES 8 */
+  .features8 { background: var(--color-white); }
+  .features8-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; margin-top: 2rem; }
+  .feature8-card { text-align: center; }
+  .feature8-card img { width: 64px; height: 64px; margin-inline: auto 0.75rem; object-fit: contain; }
+  .feature8-card h3 { font-size: 1.05rem; margin: 0.75rem 0 0.4rem; }
+  .feature8-card p { font-size: 0.92rem; color: var(--color-muted); }
+
+  /* BENEFITS */
+  .benefits { background: var(--color-light); }
+  .benefits-list { list-style: none; padding: 0; margin: 1.5rem auto 0; max-width: 700px; display: grid; gap: 0.75rem; }
+  .benefits-list li { font-size: 1.05rem; font-weight: 600; padding-left: 1.75rem; position: relative; }
+  .benefits-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-red); font-weight: 800; }
+
+  /* GEN 3 INFO */
+  .gen3-info { background: var(--color-black); color: #e6e6e6; }
+  .gen3-info .section-title, .gen3-info .section-lead { color: var(--color-white); }
+  .gen3-preorder-note { max-width: 800px; margin: 0 auto 1.5rem; text-align: center; color: #cfcfcf; }
+  .gen3-preorder-note strong { color: var(--color-yellow); }
+  .gen3-features { list-style: none; padding: 0; margin: 0; max-width: 700px; margin-inline: auto; display: grid; gap: 1rem; }
+  .gen3-features li { display: flex; align-items: center; gap: 1rem; background: #161616; border-radius: 10px; padding: 1rem 1.25rem; }
+  .gen3-icon { width: 36px; height: 36px; flex: none; }
+
+  /* PRE-ORDER (same pattern as home) */
+  .preorder { background: radial-gradient(circle at 30% 25%, #a80000, #1a0000 78%); color: #e6e6e6; padding: 6rem 0; }
+  .preorder-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+  .preorder-copy h2 { color: var(--color-white); font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 4.8vw, 3.6rem); line-height: 1.1; margin-bottom: 1.5rem; }
+  .preorder-copy p { color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; }
+  .preorder-cta { padding: 0.65em 2.2em; font-size: 1.1rem; }
+  .preorder-count { margin: 1.25rem 0 0.25rem; }
+  .big-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.6rem, 7.5vw, 5.5rem); color: var(--color-yellow); line-height: 1; }
+  .preorder-note { color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 20px; }
+  .stat-cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; }
+  .stat-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.6rem; background: var(--color-white); color: var(--color-heading); border-radius: 12px; padding: 1.5rem 1.25rem; box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+  .stat-ic img { width: 34px; height: 34px; object-fit: contain; }
+  .stat-txt { font-weight: 700; font-size: 1.05rem; }
+
+  /* REVOLUTION */
+  .revolution { background: var(--color-white); text-align: center; }
+
+  /* BROCHURE */
+  .brochure { background: var(--color-light); }
+  .brochure-inner { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 2.5rem; align-items: center; }
+  .brochure-thumb { width: 100%; border-radius: 12px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-inner, .desc-inner, .preorder-inner, .brochure-inner { grid-template-columns: 1fr; }
+    .hero-media { order: -1; }
+    .features8-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .features8-grid { grid-template-columns: 1fr; }
+  }
+</style>
