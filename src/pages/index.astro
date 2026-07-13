@@ -168,7 +168,7 @@ const locations = [
 
   <!-- 7. TESTIMONIALS (Shark Tank) -->
   <section class="testimonials" style={`background-image: linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)), url('/images/frame-61.jpg');`}>
-    <span class="shark-logo" aria-hidden="true"><span>SHARK</span><span>TANK</span></span>
+    <img class="shark-logo" src="/images/shark-tank-logo.png" alt="As seen on Shark Tank" />
     <div class="container">
       <div class="testimonial-stack">
         {testimonials.map((t) => (
@@ -273,7 +273,7 @@ const locations = [
 
   /* 7. TESTIMONIALS */
   .testimonials { position: relative; background-size: cover; background-position: center; padding: 5rem 0; }
-  .shark-logo { position: absolute; top: 1.5rem; left: 1.75rem; display: flex; flex-direction: column; font-family: var(--font-display); font-weight: 800; font-style: italic; color: var(--color-white); line-height: 0.85; font-size: clamp(1.4rem, 2.6vw, 2rem); letter-spacing: 0.03em; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+  .shark-logo { position: absolute; top: 1.5rem; left: 1.75rem; height: clamp(52px, 7vw, 84px); width: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5)); }
   .testimonial-stack { display: flex; flex-direction: column; gap: 1.5rem; max-width: 420px; margin: 0 auto; }
   .testimonial { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0; background: var(--color-white); border-radius: 16px; padding: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
   .tst-photo { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; }
