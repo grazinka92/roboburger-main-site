@@ -125,7 +125,7 @@ const locations = [
       <div class="feature-grid">
         {features.map((f) => (
           <article class="feature-card">
-            <p class="feature-text"><strong>{f.title}</strong> {f.text}</p>
+            <p class="feature-text"><strong class="feature-title">{f.title}</strong><span class="feature-desc">{f.text}</span></p>
             <div class="feature-img"><img src={f.img} alt={f.imgAlt} loading="lazy" /></div>
           </article>
         ))}
@@ -296,7 +296,9 @@ const locations = [
   .features { background: var(--color-white); }
   .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   .feature-card { text-align: center; }
-  .feature-text { color: #000000; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 1.25rem; }
+  .feature-text { color: #000000; font-family: 'Poppins', sans-serif; font-size: 16px; margin-bottom: 1.25rem; }
+  .feature-title { display: block; font-weight: 700; margin-bottom: 0.4rem; }
+  .feature-desc { display: block; font-weight: 400; }
   .feature-img { overflow: hidden; aspect-ratio: 4 / 3; background: var(--color-light); }
   .feature-img img { width: 100%; height: 100%; object-fit: cover; }
 
