@@ -261,15 +261,25 @@ const locations = [
   .chef-cell { border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 3; background: rgba(255,255,255,0.06); }
   .chef-cell img, .chef-cell video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  /* 3. CERTIFICATIONS — continuous auto-scrolling strip (matches live site's Swiper carousel: autoplay, infinite loop, pause on hover) */
+  /* 3. CERTIFICATIONS — step carousel matching the live site's Swiper settings:
+     slides_to_show:5, autoplay_speed:1000ms (hold), speed:500ms (transition), infinite loop, pause on hover. */
   .certs { background: var(--color-white); padding: 2.5rem 0; }
   .cert-marquee { overflow: hidden; width: 100%; }
-  .cert-track { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 4rem; width: max-content; animation: cert-scroll 6s linear infinite; }
-  .cert-track img { height: 54px; width: auto; object-fit: contain; flex: none; }
+  .cert-track {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; width: 300%;
+    animation: cert-scroll 7.5s ease infinite;
+  }
+  .cert-track li { flex: 0 0 calc(100% / 15); display: flex; justify-content: center; align-items: center; padding-inline: 1.5rem; }
+  .cert-track img { height: 54px; width: auto; object-fit: contain; }
   .cert-marquee:hover .cert-track { animation-play-state: paused; }
   @keyframes cert-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-33.3333%); }
+    0%, 13.33%    { transform: translateX(0); }
+    20%, 33.33%   { transform: translateX(-6.6667%); }
+    40%, 53.33%   { transform: translateX(-13.3333%); }
+    60%, 73.33%   { transform: translateX(-20%); }
+    80%, 93.33%   { transform: translateX(-26.6667%); }
+    100%          { transform: translateX(-33.3333%); }
   }
 
   /* 4. FEATURES */
