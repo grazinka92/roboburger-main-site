@@ -28,8 +28,10 @@ const path = Astro.url.pathname;
           {item.label}
         </a>
       ))}
-      <a href="/contact-us/" class="btn btn-primary nav-cta">Contact us</a>
+      <a href="/contact-us/" class="btn btn-primary nav-cta mobile-cta">Contact us</a>
     </nav>
+
+    <a href="/contact-us/" class="btn btn-primary nav-cta desktop-cta">Contact us</a>
   </div>
 </header>
 
@@ -44,26 +46,30 @@ const path = Astro.url.pathname;
   .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 1.5rem;
     min-height: 116px;
     padding-block: 1rem;
   }
+  .logo { flex: none; }
   .logo img { height: 64px; width: auto; }
 
   .site-nav {
+    flex: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 2.5rem;
   }
   .nav-link {
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 18px;
     color: var(--color-heading);
   }
   .nav-link:hover { color: var(--color-red); text-decoration: none; }
   .nav-link.active { color: var(--color-red); }
-  .nav-cta { margin-left: 1rem; font-size: 1.05rem; padding: 1em 2.4em; }
+  .nav-cta { font-size: 0.95rem; padding: 0.6em 1.75em; }
+  .desktop-cta { flex: none; }
+  .mobile-cta { display: none; }
 
   .nav-toggle {
     display: none;
@@ -86,12 +92,15 @@ const path = Astro.url.pathname;
   }
 
   @media (max-width: 900px) {
+    .header-inner { justify-content: space-between; }
     .nav-toggle { display: flex; }
+    .desktop-cta { display: none; }
     .site-nav {
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
+      flex: none;
       flex-direction: column;
       align-items: stretch;
       gap: 0;
@@ -102,7 +111,7 @@ const path = Astro.url.pathname;
     }
     .site-nav.open { display: flex; }
     .nav-link { padding: 0.75rem 0; border-bottom: 1px solid #eee; }
-    .nav-cta { margin: 0.75rem 0 0; text-align: center; }
+    .mobile-cta { display: block; margin: 0.75rem 0 0; text-align: center; }
   }
 </style>
 
