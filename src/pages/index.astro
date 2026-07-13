@@ -76,6 +76,7 @@ const locations = [
   <!-- 1. HERO -->
   <section class="hero">
     <img class="curve curve-left" src="/images/vector-6.png" alt="" aria-hidden="true" />
+    <img class="curve curve-right" src="/images/vector-6-1.png" alt="" aria-hidden="true" />
     <div class="container hero-inner">
       <div class="hero-copy">
         <h1>The World's First Burger Chef In a Vending Format</h1>
@@ -221,8 +222,9 @@ const locations = [
   /* 1. HERO */
   .hero { position: relative; background: #fadbdc; overflow: hidden; }
   .hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 2rem; padding-block: 3.5rem; }
-  .curve { position: absolute; z-index: 1; height: 120%; width: auto; bottom: -10%; pointer-events: none; }
-  .curve-left { left: -3%; transform: scaleX(-1); }
+  .curve { position: absolute; z-index: 1; height: 100%; width: auto; bottom: 0; pointer-events: none; }
+  .curve-left { left: 0; }
+  .curve-right { right: 0; }
   .hero-copy h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 5.2vw, 3.6rem); line-height: 1.05; margin-bottom: 1.25rem; }
   .hero-copy p { font-size: 1.1rem; color: #2b2b2b; margin-bottom: 1.75rem; max-width: 34rem; }
   .hero-media img { margin-inline: auto; max-height: 640px; width: auto; object-fit: contain; }
