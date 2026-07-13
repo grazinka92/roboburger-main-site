@@ -68,11 +68,6 @@ const locations = [
   { label: 'Event Venues', icon: 'red-carpet' },
   { label: 'Industrial Zones', icon: 'industrial-zone' },
 ];
-
-const collage = [
-  '/images/feature-woman.png', '/images/newport.png', '/images/machine.png',
-  '/images/mask-group.png', '/images/frame-61.jpg', '/images/product-web.webp',
-];
 ---
 <BaseLayout
   title="RoboBurger"
@@ -210,15 +205,12 @@ const collage = [
     </div>
   </section>
 
-  <!-- 9. FOOD EMPIRE -->
+  <!-- 9. FOOD EMPIRE (banner image from the live site) -->
   <section class="empire">
-    <div class="empire-bg" aria-hidden="true">
-      {[...collage, ...collage, ...collage].map((src) => <img src={src} alt="" loading="lazy" />)}
-    </div>
-    <div class="empire-overlay"></div>
-    <div class="container empire-content">
-      <h2>RoboBurger is not just a machine.<br /><span>It's the next food empire!</span></h2>
-    </div>
+    <picture>
+      <source media="(max-width: 700px)" srcset="/images/empire-mobile.jpg" />
+      <img src="/images/empire-desktop.jpg" alt="RoboBurger is not just a machine. It's the next food empire!" loading="lazy" />
+    </picture>
   </section>
 </BaseLayout>
 
@@ -297,14 +289,9 @@ const collage = [
   .loc-icon { width: 40px; height: 40px; object-fit: contain; }
   .loc-label { font-size: 0.9rem; font-weight: 600; color: var(--color-white); }
 
-  /* 9. FOOD EMPIRE */
-  .empire { position: relative; overflow: hidden; padding: 6rem 0; }
-  .empire-bg { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 1fr; }
-  .empire-bg img { width: 100%; height: 100%; object-fit: cover; }
-  .empire-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(120,0,8,0.82), rgba(60,0,4,0.88)); }
-  .empire-content { position: relative; z-index: 2; text-align: center; }
-  .empire h2 { color: var(--color-white); font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.15; }
-  .empire h2 span { color: var(--color-yellow); }
+  /* 9. FOOD EMPIRE (single responsive banner image) */
+  .empire { line-height: 0; }
+  .empire img { width: 100%; height: auto; display: block; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -313,7 +300,6 @@ const collage = [
     .feature-grid { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; }
     .locations { grid-template-columns: repeat(3, 1fr); }
     .testimonial-stack { max-width: none; }
-    .empire-bg { grid-template-columns: repeat(4, 1fr); }
   }
   @media (max-width: 520px) {
     .locations { grid-template-columns: repeat(2, 1fr); }
