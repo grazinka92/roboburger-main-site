@@ -108,11 +108,11 @@ const locations = [
     </div>
   </section>
 
-  <!-- 3. CERTIFICATIONS -->
+  <!-- 3. CERTIFICATIONS (continuous auto-scrolling strip, matches the live site's carousel) -->
   <section class="certs">
-    <div class="container">
-      <ul class="cert-row">
-        {certs.map((c) => <li><img src={c.src} alt={c.alt} loading="lazy" /></li>)}
+    <div class="cert-marquee">
+      <ul class="cert-track">
+        {[...certs, ...certs, ...certs].map((c) => <li><img src={c.src} alt={c.alt} loading="lazy" /></li>)}
       </ul>
     </div>
   </section>
@@ -261,10 +261,16 @@ const locations = [
   .chef-cell { border-radius: 10px; overflow: hidden; aspect-ratio: 4 / 3; background: rgba(255,255,255,0.06); }
   .chef-cell img, .chef-cell video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  /* 3. CERTIFICATIONS */
+  /* 3. CERTIFICATIONS — continuous auto-scrolling strip (matches live site's Swiper carousel: autoplay, infinite loop, pause on hover) */
   .certs { background: var(--color-white); padding: 2.5rem 0; }
-  .cert-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 2rem; }
-  .cert-row img { height: 54px; width: auto; object-fit: contain; }
+  .cert-marquee { overflow: hidden; width: 100%; }
+  .cert-track { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 4rem; width: max-content; animation: cert-scroll 6s linear infinite; }
+  .cert-track img { height: 54px; width: auto; object-fit: contain; flex: none; }
+  .cert-marquee:hover .cert-track { animation-play-state: paused; }
+  @keyframes cert-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-33.3333%); }
+  }
 
   /* 4. FEATURES */
   .features { background: var(--color-white); }
