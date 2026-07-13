@@ -79,7 +79,7 @@ const locations = [
     <img class="curve curve-right" src="/images/vector-6-1.png" alt="" aria-hidden="true" />
     <div class="container hero-inner">
       <div class="hero-copy">
-        <h1>The World's First Burger Chef In a Vending Format</h1>
+        <h1 class="zoom-in-fast">The World's First Burger Chef In a Vending Format</h1>
         <p>
           RoboBurger™ is the first and only fully autonomous burger machine that grills and serves
           fresh, hot burgers on demand. Compact, self cleaning, and certified for food and electrical
@@ -252,6 +252,18 @@ const locations = [
   .hero-copy h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 5.2vw, 3.6rem); line-height: 1.05; margin-bottom: 1.25rem; }
   .hero-copy p { font-size: 1.1rem; color: #2b2b2b; margin-bottom: 1.75rem; max-width: 34rem; }
   .hero-media img { margin-inline: auto; max-height: 640px; width: auto; object-fit: contain; }
+
+  /* Entrance animation on the hero heading, matching the live site's
+     Elementor "_animation: zoomIn" (speed: fast = 0.75s), from animate.css */
+  .zoom-in-fast { animation: zoomIn 0.75s; }
+  @keyframes zoomIn {
+    0%   { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+    50%  { opacity: 1; }
+    100% { transform: scale3d(1, 1, 1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .zoom-in-fast { animation: none; }
+  }
 
   /* 2. A CHEF */
   .chef { background-image: url('/images/frame-125.png'); background-size: cover; background-position: center; color: var(--color-white); padding: 4.5rem 0; }
