@@ -18,12 +18,12 @@ const { title, description = '' } = Astro.props;
     {description && <meta name="description" content={description} />}
     <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <!-- Montserrat (headings), same as live site -->
+    <!-- Montserrat (some headings) + Poppins (widely used across the live site's Elementor content) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
     />
 
     <!-- Analytics (Google Tag Manager) is added in Task 11 with cookie consent. -->
