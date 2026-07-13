@@ -11,7 +11,7 @@ const path = Astro.url.pathname;
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="RoboBurger home">
-      <img src="/logo.png" alt="RoboBurger" width="150" height="40" />
+      <img src="/logo.png" alt="RoboBurger" width="220" height="64" />
     </a>
 
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
@@ -45,24 +45,25 @@ const path = Astro.url.pathname;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    min-height: 72px;
+    gap: 1.5rem;
+    min-height: 116px;
+    padding-block: 1rem;
   }
-  .logo img { height: 40px; width: auto; }
+  .logo img { height: 64px; width: auto; }
 
   .site-nav {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
   .nav-link {
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 700;
+    font-size: 1.1rem;
     color: var(--color-heading);
   }
   .nav-link:hover { color: var(--color-red); text-decoration: none; }
   .nav-link.active { color: var(--color-red); }
-  .nav-cta { margin-left: 0.5rem; }
+  .nav-cta { margin-left: 1rem; font-size: 1.05rem; padding: 1em 2.4em; }
 
   .nav-toggle {
     display: none;
