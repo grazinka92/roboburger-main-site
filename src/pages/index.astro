@@ -167,16 +167,15 @@ const locations = [
   </section>
 
   <!-- 7. TESTIMONIALS (Shark Tank) -->
-  <section class="testimonials" style={`background-image: linear-gradient(rgba(10,10,20,0.35), rgba(10,10,20,0.35)), url('/images/frame-61.jpg');`}>
+  <section class="testimonials" style={`background-image: linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)), url('/images/frame-61.jpg');`}>
+    <span class="shark-logo" aria-hidden="true"><span>SHARK</span><span>TANK</span></span>
     <div class="container">
       <div class="testimonial-stack">
         {testimonials.map((t) => (
           <figure class="testimonial">
             <img class="tst-photo" src={t.img} alt={t.name} loading="lazy" />
-            <div>
-              <blockquote>“{t.quote}”</blockquote>
-              <figcaption>{t.name}, {t.role}</figcaption>
-            </div>
+            <blockquote>“{t.quote}”</blockquote>
+            <figcaption>{t.name}, {t.role}</figcaption>
           </figure>
         ))}
       </div>
@@ -273,12 +272,13 @@ const locations = [
   .video-card .play svg { width: 38px; height: 38px; margin-left: 4px; }
 
   /* 7. TESTIMONIALS */
-  .testimonials { background-size: cover; background-position: center; padding: 5rem 0; }
-  .testimonial-stack { display: flex; flex-direction: column; gap: 1.25rem; max-width: 460px; }
-  .testimonial { display: flex; align-items: center; gap: 1rem; margin: 0; background: var(--color-white); border-radius: 14px; padding: 1.25rem 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
-  .tst-photo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none; }
-  .testimonial blockquote { margin: 0 0 0.25rem; font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--color-heading); }
-  .testimonial figcaption { color: var(--color-muted); font-size: 0.9rem; }
+  .testimonials { position: relative; background-size: cover; background-position: center; padding: 5rem 0; }
+  .shark-logo { position: absolute; top: 1.5rem; left: 1.75rem; display: flex; flex-direction: column; font-family: var(--font-display); font-weight: 800; font-style: italic; color: var(--color-white); line-height: 0.85; font-size: clamp(1.4rem, 2.6vw, 2rem); letter-spacing: 0.03em; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+  .testimonial-stack { display: flex; flex-direction: column; gap: 1.5rem; max-width: 420px; margin: 0 auto; }
+  .testimonial { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0; background: var(--color-white); border-radius: 16px; padding: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
+  .tst-photo { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; }
+  .testimonial blockquote { margin: 0 0 0.5rem; font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; color: var(--color-heading); }
+  .testimonial figcaption { color: var(--color-muted); font-size: 0.95rem; }
 
   /* 8. VALUE + LOCATIONS (dark red) */
   .value { background: radial-gradient(circle at 50% 0%, #b3000c, #6a0000 80%); color: var(--color-white); padding: 4.5rem 0; }
