@@ -281,11 +281,11 @@ const stats = [
   .own-one-btn:hover { background: #ffd42e; color: #000000; }
   .kitchen-media img { margin-inline: auto; max-height: 450px; width: auto; object-fit: contain; }
 
-  /* A PLUG & GO (red gradient, white bordered image, white text) */
-  .plug-go { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); padding: 3rem 0; }
+  /* A PLUG & GO (red gradient, image keeps its own inner frame, white text) */
+  .plug-go { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); padding: 6rem 0; }
   .plug-go-inner { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 2.5rem; align-items: center; }
   .plug-go-media img {
-    width: 100%; border-radius: 16px; border: 8px solid #ffffff;
+    width: 100%; border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   }
   .plug-go-copy .section-title-left { color: #ffffff; }
