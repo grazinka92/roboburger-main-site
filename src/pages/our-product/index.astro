@@ -13,6 +13,13 @@ const specsB = [
   { label: 'Dimensions', value: 'H 130 / W 185 / D 71 cm — H 73 / W 51 / D 28 in' },
 ];
 
+const menuCards = [
+  { icon: '/images/menu-icon-patty.png', title: '3 Patty Options', text: 'Enabling a diverse menu selection (Such as beef, chicken, plant-based)' },
+  { icon: '/images/menu-icon-topping.png', title: '3 Topping Types', text: 'Topping Dispenser Accommodates 3 varieties, (such as cheese, pickles, fried onion)' },
+  { icon: '/images/menu-icon-sauce.png', title: '6 Sauce Choices', text: 'From classic ketchup to gourmet flavors' },
+  { icon: '/images/menu-icon-bun.png', title: 'Toasted Bun', text: 'Warm and crispy for perfect texture.' },
+];
+
 const features = [
   { img: '/images/features/work-1.gif', title: 'No Plumbing Required', text: 'Install anywhere using just a standard outlet.' },
   { img: '/images/features/mop.gif', title: 'Self-Cleaning System', text: 'Maintains hygiene without extra labor.' },
@@ -71,10 +78,13 @@ const stats = [
     </div>
   </section>
 
-  <!-- DESCRIPTION + SPECS A -->
-  <section class="section desc">
-    <div class="container desc-inner">
-      <div>
+  <!-- A PLUG & GO (red gradient bg, white bordered image, white text) -->
+  <section class="plug-go">
+    <div class="container plug-go-inner">
+      <div class="plug-go-media">
+        <img src="/images/prod-select.png" alt="Customer receiving a fresh RoboBurger" loading="lazy" />
+      </div>
+      <div class="plug-go-copy">
         <h2 class="section-title-left">A Plug &amp; Go Burger Restaurant in Miniature</h2>
         <p class="desc-text">
           RoboBurger is a revolutionary food automation kiosk that grills fresh, gourmet burgers in
@@ -87,20 +97,28 @@ const stats = [
           inventory and performance, and is designed to meet food safety standards with minimal on-site
           servicing.
         </p>
-        <ul class="spec-list">
-          {specsA.map((s) => (<li><strong>{s.label}:</strong><br />{s.value}</li>))}
-        </ul>
-      </div>
-      <div class="desc-media">
-        <img src="/images/prod-select.png" alt="Customer receiving a fresh RoboBurger" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- MENU CUSTOMIZATION (ready-made image) -->
-  <section class="section menu-custom">
-    <div class="container">
-      <img src="/images/prod-frame-53.png" alt="Menu customization: 3 patty options, toasted bun, 3 topping types, 6 sauce choices" loading="lazy" class="menu-grid-img" />
+  <!-- PRODUCT SPECIFICATIONS + MENU CUSTOMIZATION CARDS -->
+  <section class="section specs-menu">
+    <div class="container specs-menu-inner">
+      <div class="specs-col">
+        <h2 class="section-title-left">Product specifications</h2>
+        <ul class="spec-list">
+          {specsA.map((s) => (<li><strong>{s.label}:</strong><br />{s.value}</li>))}
+        </ul>
+      </div>
+      <div class="menu-cards">
+        {menuCards.map((c) => (
+          <div class="menu-card">
+            <img src={c.icon} alt="" aria-hidden="true" class="menu-card-icon" loading="lazy" />
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -263,23 +281,33 @@ const stats = [
   .own-one-btn:hover { background: #ffd42e; color: #000000; }
   .kitchen-media img { margin-inline: auto; max-height: 450px; width: auto; object-fit: contain; }
 
-  /* DESCRIPTION + SPECS */
-  .desc { background: var(--color-white); }
-  .desc-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; }
-  .desc-text { color: #000; font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; margin-bottom: 1.5rem; }
-  .desc-media img { width: 100%; border-radius: 12px; }
+  /* A PLUG & GO (red gradient, white bordered image, white text) */
+  .plug-go { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); padding: 3rem 0; }
+  .plug-go-inner { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 2.5rem; align-items: center; }
+  .plug-go-media img {
+    width: 100%; border-radius: 16px; border: 8px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+  .plug-go-copy .section-title-left { color: #ffffff; }
+  .plug-go-copy .desc-text { color: #ffffff; margin-bottom: 0; max-height: 260px; overflow: hidden; }
+
+  /* PRODUCT SPECIFICATIONS + MENU CUSTOMIZATION */
+  .specs-menu { background: var(--color-white); }
+  .specs-menu-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2.5rem; align-items: start; }
+  .specs-col .section-title-left { font-size: 42px; font-weight: 800; }
   .spec-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
-  .spec-list li { font-size: 0.98rem; color: var(--color-text); }
-  .spec-list strong { color: var(--color-red); font-weight: 700; }
+  .spec-list li { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; }
+  .spec-list strong { color: #DB0C15; font-weight: 700; }
   .spec-list.centered { text-align: center; max-width: 700px; margin-inline: auto; }
+  .menu-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .menu-card { display: flex; gap: 1rem; align-items: flex-start; background: #FADBDC; border-radius: 16px; padding: 30px; }
+  .menu-card-icon { width: 64px; height: 64px; flex: none; object-fit: contain; }
+  .menu-card h3 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; color: #000000; margin: 0 0 0.5rem; }
+  .menu-card p { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; margin: 0; }
 
   /* 3D VIEW */
   .view3d { background: var(--color-white); text-align: center; }
   .view3d model-viewer { max-width: 900px; margin-inline: auto; background: var(--color-light); border-radius: 12px; }
-
-  /* MENU CUSTOMIZATION */
-  .menu-custom { background: var(--color-white); padding-top: 0; }
-  .menu-grid-img { max-width: 700px; width: 100%; margin-inline: auto; display: block; }
 
   /* SPECS B */
   .specs-b { background: var(--color-light); }
@@ -339,7 +367,8 @@ const stats = [
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .kitchen-inner, .desc-inner, .preorder-inner, .brochure-inner { grid-template-columns: 1fr; }
+    .kitchen-inner, .plug-go-inner, .specs-menu-inner, .preorder-inner, .brochure-inner { grid-template-columns: 1fr; }
+    .menu-cards { grid-template-columns: 1fr; }
     .kitchen-media { order: -1; }
     .features8-grid { grid-template-columns: repeat(2, 1fr); }
   }
