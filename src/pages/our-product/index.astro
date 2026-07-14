@@ -7,12 +7,6 @@ const specsA = [
   { label: 'Dimensions', value: 'H 233 / W 145 / D 75 cm — H 91.7 / W 57.09 / D 29.53 in' },
 ];
 
-const specsB = [
-  { label: 'Capacity', value: 'Approximately 70 burgers per refill' },
-  { label: 'Electricity', value: '220V 30 amp' },
-  { label: 'Dimensions', value: 'H 130 / W 185 / D 71 cm — H 73 / W 51 / D 28 in' },
-];
-
 const menuCards = [
   { icon: '/images/menu-icon-patty.png', title: '3 Patty Options', text: 'Enabling a diverse menu selection (Such as beef, chicken, plant-based)' },
   { icon: '/images/menu-icon-topping.png', title: '3 Topping Types', text: 'Topping Dispenser Accommodates 3 varieties, (such as cheese, pickles, fried onion)' },
@@ -121,15 +115,6 @@ const stats = [
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- SPECS B -->
-  <section class="section specs-b">
-    <div class="container">
-      <ul class="spec-list centered">
-        {specsB.map((s) => (<li><strong>{s.label}:</strong><br />{s.value}</li>))}
-      </ul>
     </div>
   </section>
 
@@ -307,9 +292,6 @@ const stats = [
   /* 3D VIEW */
   .view3d { background: var(--color-white); text-align: center; }
   .view3d model-viewer { max-width: 900px; margin-inline: auto; background: var(--color-light); border-radius: 12px; }
-
-  /* SPECS B */
-  .specs-b { background: var(--color-light); }
 
   /* FEATURES 8 */
   .features8 { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); }
