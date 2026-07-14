@@ -13,30 +13,35 @@ const legal = [
   { label: 'Cookies Policy', href: '/cookies-policy/' },
 ];
 const social = [
-  { label: 'Instagram', href: 'https://www.instagram.com/roboburger?igsh=ZWFuOG1tMzd3Znl6' },
-  { label: 'Facebook', href: 'https://www.facebook.com/share/1AbhsJLYSs/' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/roboburger-inc/' },
-  { label: 'YouTube', href: 'https://youtube.com/@theroboburger2700?si=aQMdVVGpW7MvYJEK' },
+  { label: 'Instagram', href: 'https://www.instagram.com/roboburger?igsh=ZWFuOG1tMzd3Znl6', icon: '/images/social/instagram.png' },
+  { label: 'Facebook', href: 'https://www.facebook.com/share/1AbhsJLYSs/', icon: '/images/social/facebook.png' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/roboburger-inc/', icon: '/images/social/linkedin.png' },
+  { label: 'YouTube', href: 'https://youtube.com/@theroboburger2700?si=aQMdVVGpW7MvYJEK', icon: '/images/social/youtube.png' },
 ];
 ---
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
       <img src="/logo.png" alt="RoboBurger" class="footer-logo" width="160" height="43" />
+      <h3 class="footer-heading">Contact:</h3>
       <address class="footer-contact">
-        <p>132 32nd St Brooklyn NY 11232</p>
         <p><a href="tel:+18668053330">1 (866) 805-3330</a></p>
         <p><a href="mailto:Sales@RoboBurger.com">Sales@RoboBurger.com</a></p>
+        <p><a href="mailto:Sales@RoboBurger.com">132 32nd St Brooklyn NY 11232</a></p>
       </address>
       <ul class="social">
         {social.map((s) => (
-          <li><a href={s.href} target="_blank" rel="noopener">{s.label}</a></li>
+          <li>
+            <a href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
+              <img src={s.icon} alt={s.label} width="40" height="40" loading="lazy" />
+            </a>
+          </li>
         ))}
       </ul>
     </div>
 
     <nav class="footer-col" aria-label="Pages">
-      <h3>Pages</h3>
+      <h3 class="footer-heading">Pages</h3>
       <ul>
         {pages.map((p) => (
           <li>
@@ -47,7 +52,7 @@ const social = [
     </nav>
 
     <nav class="footer-col" aria-label="Legal">
-      <h3>Legal</h3>
+      <h3 class="footer-heading">Legal</h3>
       <ul>
         {legal.map((l) => (<li><a href={l.href}>{l.label}</a></li>))}
       </ul>
@@ -64,7 +69,7 @@ const social = [
 <style>
   .site-footer {
     background: var(--color-white);
-    color: #4a4a4a;
+    color: #000000;
     padding-top: 3rem;
     margin-top: 3rem;
     border-top: 1px solid #ececec;
@@ -76,17 +81,37 @@ const social = [
     padding-bottom: 2rem;
   }
   .footer-logo { height: 43px; width: auto; margin-bottom: 1rem; }
+
+  .footer-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0 0 1rem;
+  }
+
   .footer-contact { font-style: normal; margin-bottom: 1rem; }
   .footer-contact p { margin: 0 0 0.35rem; }
+  .footer-contact a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: underline;
+  }
   .footer-contact a:hover { color: var(--color-red); }
 
-  .social { list-style: none; display: flex; gap: 1rem; padding: 0; margin: 0; }
-  .social a { color: #4a4a4a; }
-  .social a:hover { color: var(--color-red); text-decoration: none; }
+  .social { list-style: none; display: flex; gap: 0.75rem; padding: 0; margin: 0; }
+  .social a { display: block; line-height: 0; }
+  .social img { width: 40px; height: 40px; border-radius: 8px; }
+  .social a:hover { opacity: 0.85; }
 
-  .footer-col h3 { color: var(--color-heading); font-size: 1.05rem; margin-bottom: 1rem; }
   .footer-col ul { list-style: none; padding: 0; margin: 0; }
   .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #000000;
+  }
   .footer-col a:hover { color: var(--color-red); }
 
   .footer-bottom {
