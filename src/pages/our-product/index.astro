@@ -34,10 +34,10 @@ const benefits = [
 ];
 
 const gen3Features = [
-  { icon: '/images/prod-capacity.png', text: 'Higher production capacity — more burgers per refill' },
-  { text: 'Striking new design — sleek, modern, and eye-catching' },
-  { icon: '/images/prod-window.png', text: 'Live viewing window — lets customers see part of the cooking process' },
-  { text: 'Compact footprint — fits easily in high-traffic locations' },
+  { icon: '/images/prod-capacity.png', text: 'Higher production capacity – more burgers per refill' },
+  { icon: '/images/prod-inspiration.png', text: 'Striking new design – sleek, modern, and eye-catching' },
+  { icon: '/images/prod-window.png', text: 'Live viewing window – lets customers see part of the cooking process' },
+  { icon: '/images/prod-compact-disc.png', text: 'Compact footprint – fits easily in high-traffic locations' },
 ];
 
 const stats = [
@@ -89,7 +89,7 @@ const stats = [
           servicing.
         </p>
         <ul class="spec-list">
-          {specsA.map((s) => (<li><strong>{s.label}:</strong> {s.value}</li>))}
+          {specsA.map((s) => (<li><strong>{s.label}:</strong><br />{s.value}</li>))}
         </ul>
       </div>
       <div class="desc-media">
@@ -109,7 +109,7 @@ const stats = [
   <section class="section specs-b">
     <div class="container">
       <ul class="spec-list centered">
-        {specsB.map((s) => (<li><strong>{s.label}:</strong> {s.value}</li>))}
+        {specsB.map((s) => (<li><strong>{s.label}:</strong><br />{s.value}</li>))}
       </ul>
     </div>
   </section>
@@ -127,6 +127,22 @@ const stats = [
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- 3D VIEW -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <section class="section view3d">
+    <div class="container">
+      <h2 class="section-title">3D View</h2>
+      <model-viewer
+        src="/robo_burger.glb"
+        alt="RoboBurger 3D Model"
+        auto-rotate
+        camera-controls
+        ar
+        style="width: 100%; height: 500px;"
+      ></model-viewer>
     </div>
   </section>
 
@@ -153,14 +169,17 @@ const stats = [
         visual impact.
       </p>
       <p class="gen3-preorder-note">
-        We're now accepting pre-orders for the next production wave. Only 200 Gen-3 machines in the
-        first batch — now over half reserved. <strong>128 units still available.</strong> Reserve with
-        just $5,000 down.
+        We're now accepting pre orders for the next production wave. Only 200 Gen 3 machines in the
+        first batch now over half reserved.
+      </p>
+      <p class="gen3-preorder-bullets">
+        • 128 units still available<br />
+        • Reserve with just $5,000 down
       </p>
       <ul class="gen3-features">
         {gen3Features.map((f) => (
           <li>
-            {f.icon && <img src={f.icon} alt="" aria-hidden="true" class="gen3-icon" />}
+            <img src={f.icon} alt="" aria-hidden="true" class="gen3-icon" />
             <span>{f.text}</span>
           </li>
         ))}
@@ -243,9 +262,14 @@ const stats = [
   .desc-inner { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center; }
   .desc-text { color: #000; font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.7; margin-bottom: 1.5rem; }
   .desc-media img { width: 100%; border-radius: 12px; }
-  .spec-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+  .spec-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
   .spec-list li { font-size: 0.98rem; color: var(--color-text); }
+  .spec-list strong { color: var(--color-red); font-weight: 700; }
   .spec-list.centered { text-align: center; max-width: 700px; margin-inline: auto; }
+
+  /* 3D VIEW */
+  .view3d { background: var(--color-white); text-align: center; }
+  .view3d model-viewer { max-width: 900px; margin-inline: auto; background: var(--color-light); border-radius: 12px; }
 
   /* MENU CUSTOMIZATION */
   .menu-custom { background: var(--color-white); padding-top: 0; }
@@ -271,11 +295,19 @@ const stats = [
   /* GEN 3 INFO */
   .gen3-info { background: var(--color-black); color: #e6e6e6; }
   .gen3-info .section-title, .gen3-info .section-lead { color: var(--color-white); }
-  .gen3-preorder-note { max-width: 800px; margin: 0 auto 1.5rem; text-align: center; color: #cfcfcf; }
-  .gen3-preorder-note strong { color: var(--color-yellow); }
-  .gen3-features { list-style: none; padding: 0; margin: 0; max-width: 700px; margin-inline: auto; display: grid; gap: 1rem; }
-  .gen3-features li { display: flex; align-items: center; gap: 1rem; background: #161616; border-radius: 10px; padding: 1rem 1.25rem; }
-  .gen3-icon { width: 36px; height: 36px; flex: none; }
+  .gen3-preorder-note { max-width: 800px; margin: 0 auto 0.75rem; text-align: center; color: #ffffff; font-family: 'Poppins', sans-serif; }
+  .gen3-preorder-bullets { max-width: 800px; margin: 0 auto 2rem; text-align: center; color: var(--color-yellow); font-family: 'Poppins', sans-serif; font-weight: 600; }
+  .gen3-features {
+    list-style: none; padding: 0; margin: 0; max-width: 800px; margin-inline: auto;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+  }
+  .gen3-features li {
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.75rem;
+    background: linear-gradient(180deg, #BC010C 0%, #330000 100%);
+    border-radius: 12px; padding: 1.75rem 1.25rem;
+  }
+  .gen3-features li span { font-family: 'Poppins', sans-serif; font-size: 16px; color: #ffffff; }
+  .gen3-icon { width: 48px; height: 48px; flex: none; }
 
   /* PRE-ORDER (same pattern as home) */
   .preorder { background: radial-gradient(circle at 30% 25%, #a80000, #1a0000 78%); color: #e6e6e6; padding: 6rem 0; }
@@ -307,5 +339,6 @@ const stats = [
   }
   @media (max-width: 520px) {
     .features8-grid { grid-template-columns: 1fr; }
+    .gen3-features { grid-template-columns: 1fr; }
   }
 </style>
