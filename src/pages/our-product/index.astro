@@ -45,6 +45,8 @@ const gen3Features = [
   { icon: '/images/prod-inspiration.png', text: 'Striking new design – sleek, modern, and eye-catching' },
   { icon: '/images/prod-window.png', text: 'Live viewing window – lets customers see part of the cooking process' },
   { icon: '/images/prod-compact-disc.png', text: 'Compact footprint – fits easily in high-traffic locations' },
+  { icon: '/images/prod-inspiration.png', text: 'Striking new design – sleek, modern, and eye-catching' },
+  { icon: '/images/prod-window.png', text: 'Live viewing window – lets customers see part of the cooking process' },
 ];
 
 const stats = [
@@ -179,20 +181,15 @@ const stats = [
 
   <!-- GEN 3 INFO -->
   <section class="section gen3-info">
-    <div class="container">
-      <h2 class="section-title">What's New in Gen 3</h2>
-      <p class="section-lead">
-        The third generation of RoboBurger brings major upgrades designed for scale, performance, and
-        visual impact.
-      </p>
-      <p class="gen3-preorder-note">
-        We're now accepting pre orders for the next production wave. Only 200 Gen 3 machines in the
-        first batch now over half reserved.
-      </p>
-      <p class="gen3-preorder-bullets">
-        • 128 units still available<br />
-        • Reserve with just $5,000 down
-      </p>
+    <div class="container gen3-inner">
+      <div class="gen3-copy">
+        <h2 class="section-title">What's New in Gen 3</h2>
+        <p class="section-lead">
+          The third generation of RoboBurger brings major upgrades designed for scale, performance, and
+          visual impact
+        </p>
+        <img src="/images/gen3-machine.webp" alt="RoboBurger Gen 3 machine" class="gen3-machine-img" />
+      </div>
       <ul class="gen3-features">
         {gen3Features.map((f) => (
           <li>
@@ -328,12 +325,14 @@ const stats = [
   .benefits-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-red); font-weight: 800; }
 
   /* GEN 3 INFO */
-  .gen3-info { background: var(--color-black); color: #e6e6e6; }
-  .gen3-info .section-title, .gen3-info .section-lead { color: var(--color-white); }
-  .gen3-preorder-note { max-width: 800px; margin: 0 auto 0.75rem; text-align: center; color: #ffffff; font-family: 'Poppins', sans-serif; }
-  .gen3-preorder-bullets { max-width: 800px; margin: 0 auto 2rem; text-align: center; color: var(--color-yellow); font-family: 'Poppins', sans-serif; font-weight: 600; }
+  .gen3-info { background: var(--color-white); }
+  .gen3-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .gen3-copy .section-title { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 800; line-height: 60px; color: #000000; text-align: left; }
+  .gen3-copy .section-lead { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 28px; color: #000000; text-align: left; margin-top: 1rem; }
+  .gen3-machine-img { display: block; height: 500px; max-width: 100%; object-fit: contain; object-position: left center; margin-top: 1.5rem; }
+
   .gen3-features {
-    list-style: none; padding: 0; margin: 0; max-width: 800px; margin-inline: auto;
+    list-style: none; padding: 0; margin: 0;
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
   }
   .gen3-features li {
@@ -368,7 +367,7 @@ const stats = [
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .kitchen-inner, .plug-go-inner, .specs-menu-inner, .preorder-inner, .brochure-inner { grid-template-columns: 1fr; }
+    .kitchen-inner, .plug-go-inner, .specs-menu-inner, .preorder-inner, .brochure-inner, .gen3-inner { grid-template-columns: 1fr; }
     .menu-cards { grid-template-columns: 1fr; }
     .kitchen-media { order: -1; }
     .features8-grid { grid-template-columns: repeat(2, 1fr); }
