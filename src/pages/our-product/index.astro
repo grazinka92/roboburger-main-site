@@ -63,7 +63,7 @@ const stats = [
       <div class="kitchen-copy">
         <h2>The Autonomous<br />Burger Kitchen</h2>
         <p>Serve Real Burgers. No Staff. No Kitchen. Just Plug It In.</p>
-        <a href="https://calendly.com/bruce-sweetrobo/30min" target="_blank" rel="noopener" class="btn btn-primary">Own One</a>
+        <a href="https://calendly.com/bruce-sweetrobo/30min" target="_blank" rel="noopener" class="btn btn-primary own-one-btn">Own One</a>
       </div>
       <div class="kitchen-media">
         <img src="/images/prod-kitchen-machine.png" alt="RoboBurger autonomous burger machine" width="632" height="573" />
@@ -253,6 +253,14 @@ const stats = [
   .kitchen-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2.5rem; }
   .kitchen-copy h2 { color: #000000; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; margin-bottom: 1rem; }
   .kitchen-copy p { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; margin-bottom: 1.5rem; }
+  .own-one-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    background: #FFDD54;
+    padding: 12px 24px;
+  }
+  .own-one-btn:hover { background: #ffd42e; color: #000000; }
   .kitchen-media img { margin-inline: auto; max-height: 450px; width: auto; object-fit: contain; }
 
   /* DESCRIPTION + SPECS */
