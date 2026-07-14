@@ -50,25 +50,24 @@ const stats = [
   title="Our Product | RoboBurger"
   description="Discover the Future of Burgers — Enjoy Fresh, Hot, Perfectly Crafted Burgers Made by Our Cutting Edge Robotic Technology."
 >
-  <!-- HERO -->
+  <!-- HERO (plain gradient banner, title only) -->
   <section class="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1>Our Product</h1>
-        <p>Discover the Future of Burgers. Enjoy fresh, hot, perfectly crafted burgers made by our cutting edge robotic technology.</p>
-      </div>
-      <div class="hero-media">
-        <img src="/images/prod-machine-1.png" alt="RoboBurger autonomous burger machine" width="420" height="500" />
-      </div>
+    <div class="container">
+      <h1>Our Product</h1>
     </div>
   </section>
 
-  <!-- AUTONOMOUS KITCHEN BANNER -->
-  <section class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/prod-screen-2.png');">
-    <div class="container">
-      <h2>The Autonomous Burger Kitchen</h2>
-      <p>Serve Real Burgers. No Staff. No Kitchen. Just Plug It In.</p>
-      <a href="/contact-us/" class="btn btn-primary">Own One</a>
+  <!-- AUTONOMOUS KITCHEN (light section, 2-column, black text) -->
+  <section class="kitchen">
+    <div class="container kitchen-inner">
+      <div class="kitchen-copy">
+        <h2>The Autonomous<br />Burger Kitchen</h2>
+        <p>Serve Real Burgers. No Staff. No Kitchen. Just Plug It In.</p>
+        <a href="https://calendly.com/bruce-sweetrobo/30min" target="_blank" rel="noopener" class="btn btn-primary">Own One</a>
+      </div>
+      <div class="kitchen-media">
+        <img src="/images/prod-kitchen-machine.png" alt="RoboBurger autonomous burger machine" width="632" height="573" />
+      </div>
     </div>
   </section>
 
@@ -245,17 +244,16 @@ const stats = [
   .section-title-left { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.15; margin-bottom: 1.25rem; }
   .section-lead { max-width: 860px; margin: 0 auto 1.5rem; text-align: center; color: var(--color-text); font-size: 1.1rem; }
 
-  /* HERO */
-  .hero { background: #fadbdc; padding: 3rem 0; }
-  .hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 2rem; }
-  .hero-copy h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 5vw, 3.4rem); margin-bottom: 1rem; }
-  .hero-copy p { font-family: 'Poppins', sans-serif; font-size: 20px; color: #000; max-width: 34rem; }
-  .hero-media img { margin-inline: auto; max-height: 500px; width: auto; object-fit: contain; }
+  /* HERO (plain gradient banner, title only) */
+  .hero { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); text-align: center; padding: 5rem 0; }
+  .hero h1 { color: var(--color-white); font-family: var(--font-display); font-weight: 800; font-size: clamp(2.1rem, 5vw, 3.4rem); margin: 0; }
 
-  /* BANNER */
-  .banner { background-size: cover; background-position: center; color: var(--color-white); text-align: center; padding: 5rem 0; }
-  .banner h2 { color: var(--color-white); font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 4.5vw, 2.8rem); margin-bottom: 0.75rem; }
-  .banner p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+  /* AUTONOMOUS KITCHEN (light, 2-column) */
+  .kitchen { background: var(--color-white); padding: 4.5rem 0; }
+  .kitchen-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2.5rem; }
+  .kitchen-copy h2 { color: #000000; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; margin-bottom: 1rem; }
+  .kitchen-copy p { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; margin-bottom: 1.5rem; }
+  .kitchen-media img { margin-inline: auto; max-height: 450px; width: auto; object-fit: contain; }
 
   /* DESCRIPTION + SPECS */
   .desc { background: var(--color-white); }
@@ -333,8 +331,8 @@ const stats = [
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .hero-inner, .desc-inner, .preorder-inner, .brochure-inner { grid-template-columns: 1fr; }
-    .hero-media { order: -1; }
+    .kitchen-inner, .desc-inner, .preorder-inner, .brochure-inner { grid-template-columns: 1fr; }
+    .kitchen-media { order: -1; }
     .features8-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 520px) {
