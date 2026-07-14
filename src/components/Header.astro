@@ -1,4 +1,6 @@
 ---
+import AnimatedLogo from './AnimatedLogo.astro';
+
 const nav = [
   { label: 'Home', href: '/' },
   { label: 'Product', href: '/our-product/' },
@@ -11,7 +13,7 @@ const path = Astro.url.pathname;
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="RoboBurger home">
-      <img src="/logo.png" alt="RoboBurger" width="220" height="64" />
+      <AnimatedLogo />
     </a>
 
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
@@ -50,8 +52,8 @@ const path = Astro.url.pathname;
     min-height: 116px;
     padding-block: 1rem;
   }
-  .logo { flex: none; }
-  .logo img { height: 64px; width: auto; }
+  .logo { flex: none; display: block; height: 64px; }
+  .logo :global(svg) { height: 100%; width: auto; }
 
   .site-nav {
     flex: 1;
