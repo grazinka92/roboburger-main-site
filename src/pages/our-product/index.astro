@@ -34,9 +34,9 @@ const features = [
 const benefits = [
   { title: 'Low operating costs', img: '/images/benefits/1-low-cost.webp' },
   { title: 'High customer engagement', img: '/images/benefits/2-engagement.png' },
-  { title: 'No need for kitchen space or staff', img: '/images/benefits/3-no-kitchen.png' },
+  { title: 'No need for kitchen space or<br />staff', img: '/images/benefits/3-no-kitchen.png' },
   { title: 'Real food with real margins', img: '/images/benefits/4-real-food.webp' },
-  { title: 'Easy to maintain and monitor remotely', img: '/images/benefits/5-maintain.png' },
+  { title: 'Easy to maintain and<br />monitor remotely', img: '/images/benefits/5-maintain.png' },
   { title: 'Scalable from 1 to 100+ units', img: '/images/benefits/6-scalable.png' },
 ];
 
@@ -176,8 +176,8 @@ const stats = [
       <ul class="benefits-list">
         {benefits.map((b) => (
           <li>
-            <h3>{b.title}</h3>
-            <img src={b.img} alt={b.title} loading="lazy" />
+            <h3 set:html={b.title} />
+            <img src={b.img} alt={b.title.replace(/<br \/>/g, ' ')} loading="lazy" />
           </li>
         ))}
       </ul>
@@ -335,7 +335,10 @@ const stats = [
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem 2rem;
   }
   .benefits-list li { text-align: center; }
-  .benefits-list h3 { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.3; color: #ffffff; margin: 0 0 1.25rem; }
+  .benefits-list h3 {
+    font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.3; color: #ffffff;
+    margin: 0 0 1.25rem; min-height: calc(1.3em * 2); display: flex; align-items: flex-end; justify-content: center;
+  }
   .benefits-list img {
     width: 100%; aspect-ratio: 394 / 322; object-fit: cover;
     border-radius: 12px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
