@@ -1,0 +1,235 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const introParagraphs = [
+  "RoboBurger was born out of a bold idea: to reinvent the way people experience food by merging great taste with cutting edge robotics. We didn't just want to automate burgers we wanted to bring the full restaurant experience into places it never existed before.",
+  "Our journey began with a team of engineers, designers, and food lovers who believed fast food could be smarter, fresher, and more accessible. After years of development, testing, and iteration, RoboBurger launched its first fully autonomous burger station turning heads and changing expectations wherever it went.",
+  "Today, RoboBurger is not just a product. It's a new category. It's a robotic kitchen in a box that's unlocking food access in airports, offices, gyms, and beyond while giving entrepreneurs and businesses a new way to grow.",
+];
+
+const stats = [
+  { icon: 'globe', text: 'Thousands of machines sold in 25+ countries, serving millions of customers worldwide.' },
+  { icon: 'gear', text: 'Developed a portfolio of 15+ groundbreaking machines and robots, from cotton candy to ice cream and popcorn pushing the limits of automated retail.' },
+  { icon: 'people', text: 'Powered by dozens of top tier engineers, developers, designers, and tech specialists.' },
+  { icon: 'heart', text: 'Trusted by top global brands, with active partnerships across leading retail, entertainment, and hospitality sectors.' },
+];
+
+const partners = [
+  '/images/partners/Robo-Burger-Investor-Brief-16.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-17.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-18.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-19.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-20.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-21.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-22.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-23.webp',
+  '/images/partners/Path-397.webp',
+  '/images/partners/Path-438.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-26.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-27.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-29.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-34.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-37.webp',
+  '/images/partners/five-star-parks-attractions-1-300x158-1.webp',
+];
+---
+<BaseLayout
+  title="About Us | RoboBurger"
+  description="RoboBurger was born out of a bold idea: to reinvent the way people experience food by merging great taste with cutting edge robotics."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>About Us</h1>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="container intro-inner">
+      <div class="intro-copy">
+        <h2 class="section-title-left">What if getting a fresh, hot burger didn't require a kitchen, a chef or even a building?</h2>
+        {introParagraphs.map((p) => <p>{p}</p>)}
+      </div>
+      <div class="intro-collage">
+        <img src="/images/about/intro-1.webp" alt="" loading="lazy" class="collage-1" />
+        <img src="/images/about/intro-2.webp" alt="" loading="lazy" class="collage-2" />
+        <img src="/images/about/intro-3.webp" alt="" loading="lazy" class="collage-3" />
+        <img src="/images/about/intro-4.webp" alt="" loading="lazy" class="collage-4" />
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VISION -->
+  <section class="vm-section">
+    <div class="container vm-inner">
+      <div class="vm-card">
+        <h2>Our Vision</h2>
+        <p>To bring real food, made fresh, to every corner of the world through intelligent, automated, and human free kitchens.</p>
+      </div>
+      <div class="vm-media">
+        <img src="/images/about/vision.webp" alt="RoboBurger office" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR MISSION -->
+  <section class="vm-section">
+    <div class="container vm-inner reverse">
+      <div class="vm-media">
+        <img src="/images/about/mission.webp" alt="RoboBurger team" loading="lazy" />
+      </div>
+      <div class="vm-card">
+        <h2>Our Mission</h2>
+        <p>To empower entrepreneurs and businesses with smart, scalable food technology that delights customers, reduces overhead, and redefines convenience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SWEET ROBO PARTNERSHIP -->
+  <section class="sweet-robo">
+    <div class="container sweet-robo-inner">
+      <div class="sweet-robo-media">
+        <img src="/images/about/sweet-robo-collage.png" alt="Sweet Robo vending machines" loading="lazy" />
+      </div>
+      <div class="sweet-robo-copy">
+        <p class="eyebrow">SWEET ROBO</p>
+        <h2>New Partnership with Sweet Robo</h2>
+        <p class="desc-text">
+          RoboBurger has joined forces with Sweet Robo the largest leader in robotics vending. This partnership
+          brings proven scale, deep technical resources, and a global track record in automated vending.
+        </p>
+      </div>
+    </div>
+
+    <ul class="stat-grid">
+      {stats.map((s) => (
+        <li>
+          <span class="stat-icon-wrap">
+            {s.icon === 'globe' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E54D6F" stroke-width="1.6"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></svg>
+            )}
+            {s.icon === 'gear' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E54D6F" stroke-width="1.6"><circle cx="12" cy="12" r="3" /><path d="M19.4 13a7.97 7.97 0 0 0 0-2l2-1.5-2-3.4-2.4 1a8 8 0 0 0-1.7-1L15 3h-4l-.3 2.6a8 8 0 0 0-1.7 1l-2.4-1-2 3.4L6.6 11a7.97 7.97 0 0 0 0 2l-2 1.5 2 3.4 2.4-1a8 8 0 0 0 1.7 1L9 21h4l.3-2.6a8 8 0 0 0 1.7-1l2.4 1 2-3.4z" /></svg>
+            )}
+            {s.icon === 'people' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E54D6F" stroke-width="1.6"><circle cx="9" cy="8" r="3" /><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6" /><circle cx="17" cy="9" r="2.5" /><path d="M16 14.2c2.9.5 5 2.6 5 5.3" /></svg>
+            )}
+            {s.icon === 'heart' && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="#E54D6F" stroke-width="1.6"><path d="M12 20s-7-4.4-9.5-8.8C.8 8 2.3 4.5 5.7 4c2-.3 3.7.7 4.3 2 .6-1.3 2.3-2.3 4.3-2 3.4.5 4.9 4 3.2 7.2C19 15.6 12 20 12 20z" /></svg>
+            )}
+          </span>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div class="scale-banner">
+      <div class="container scale-banner-inner">
+        <p class="scale-text">
+          <strong>3 warehouses, 4 offices, 5 manufacturing facilities</strong>, and over <strong>200 global employees</strong> all
+          ready to scale RoboBurger to the next level.
+        </p>
+        <div class="partner-marquee">
+          <ul class="partner-track">
+            {[...partners, ...partners].map((src) => (
+              <li><img src={src} alt="" loading="lazy" /></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-title-left { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.15; margin-bottom: 1.25rem; }
+
+  /* HERO */
+  .hero { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); text-align: center; padding: 5rem 0; }
+  .hero h1 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 48px; color: #F5F5F5; margin: 0; }
+
+  /* INTRO */
+  .intro { background: #FADBDC; padding: 5rem 0; }
+  .intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .intro-copy h2 { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 800; line-height: 1.2; color: #000000; text-align: left; }
+  .intro-copy p { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; color: #000000; margin-top: 1rem; }
+  .intro-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .intro-collage img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+  .collage-1 { grid-row: span 2; aspect-ratio: 335 / 442; }
+  .collage-2 { aspect-ratio: 270 / 263; }
+  .collage-3 { aspect-ratio: 200 / 185; }
+  .collage-4 { aspect-ratio: 200 / 185; }
+
+  /* OUR VISION / MISSION */
+  .vm-section { background: var(--color-white); padding: 3rem 0; }
+  .vm-inner { display: grid; grid-template-columns: 1fr 1.3fr; align-items: center; }
+  .vm-inner.reverse { grid-template-columns: 1.3fr 1fr; }
+  .vm-inner.reverse .vm-card { order: 2; }
+  .vm-inner.reverse .vm-media { order: 1; }
+  .vm-card {
+    background: var(--color-red); color: #ffffff; border-radius: 16px;
+    padding: 3rem 2.5rem; position: relative; z-index: 2;
+  }
+  .vm-inner:not(.reverse) .vm-card { margin-right: -3rem; }
+  .vm-inner.reverse .vm-card { margin-left: -3rem; }
+  .vm-card h2 { font-family: 'Poppins', sans-serif; font-size: 44px; font-weight: 800; color: #F5F5F5; margin: 0 0 1rem; }
+  .vm-card p { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.75; color: #ffffff; margin: 0; }
+  .vm-media img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; aspect-ratio: 720 / 394; }
+
+  /* SWEET ROBO */
+  .sweet-robo {
+    background-image: linear-gradient(160deg, rgba(219,12,21,0.08), rgba(219,12,21,0.02)), url('/images/about/sweet-robo-bg.webp');
+    background-size: cover; background-position: center; padding: 5rem 0 0;
+  }
+  .sweet-robo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding-bottom: 4rem; }
+  .sweet-robo-media img { width: 100%; object-fit: contain; }
+  .sweet-robo-copy .eyebrow { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 500; color: #834175; margin: 0 0 0.5rem; }
+  .sweet-robo-copy h2 { font-family: 'Poppins', sans-serif; font-size: 42px; font-weight: 700; color: #834175; margin: 0 0 1rem; line-height: 1.2; }
+  .sweet-robo-copy .desc-text { font-family: 'Poppins', sans-serif; font-size: 20px; line-height: 1.6; color: #323232; }
+
+  .stat-grid {
+    list-style: none; margin: 0; padding: 3rem 1rem; max-width: var(--maxw); margin-inline: auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    background: linear-gradient(189deg, #E54D6F 0%, #62195C 100%);
+    border-radius: 20px 20px 0 0;
+  }
+  .stat-grid li { text-align: center; }
+  .stat-icon-wrap {
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+    width: 80px; height: 80px; border-radius: 50%; background: #ffffff;
+  }
+  .stat-icon-wrap svg { width: 36px; height: 36px; }
+  .stat-grid p { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; color: #ffffff; margin: 0; }
+
+  .scale-banner { background: linear-gradient(189deg, #E54D6F 0%, #62195C 100%); padding-bottom: 3rem; }
+  .scale-banner-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+  .scale-text { font-family: 'Poppins', sans-serif; font-size: 26px; color: #ffffff; margin: 0; line-height: 1.4; }
+
+  .partner-marquee { overflow: hidden; width: 100%; }
+  .partner-track {
+    list-style: none; margin: 0; padding: 0; display: flex; width: 200%;
+    animation: partner-scroll 20s linear infinite;
+  }
+  .partner-track li { flex: 0 0 calc(100% / 32); display: flex; justify-content: center; align-items: center; padding-inline: 1rem; }
+  .partner-track img { height: 40px; width: auto; max-width: 110px; object-fit: contain; background: #ffffff; border-radius: 6px; padding: 4px 8px; }
+  .partner-marquee:hover .partner-track { animation-play-state: paused; }
+  @keyframes partner-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .intro-inner { grid-template-columns: 1fr; }
+    .vm-inner, .vm-inner.reverse { grid-template-columns: 1fr; }
+    .vm-inner .vm-card, .vm-inner.reverse .vm-card { margin: 0; order: 2; }
+    .vm-inner .vm-media, .vm-inner.reverse .vm-media { order: 1; }
+    .sweet-robo-inner { grid-template-columns: 1fr; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .scale-banner-inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
