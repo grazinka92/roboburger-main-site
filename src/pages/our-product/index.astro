@@ -293,14 +293,14 @@ const stats = [
 
   /* PRODUCT SPECIFICATIONS + MENU CUSTOMIZATION */
   .specs-menu { background: var(--color-white); }
-  .specs-menu-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2.5rem; align-items: start; }
+  .specs-menu-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1.5rem; align-items: start; }
   .specs-col .section-title-left { font-size: 42px; font-weight: 800; }
   .spec-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
   .spec-list li { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; }
   .spec-list strong { color: #DB0C15; font-weight: 700; }
   .spec-list.centered { text-align: center; max-width: 700px; margin-inline: auto; }
-  .menu-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-  .menu-card { display: flex; gap: 1rem; align-items: flex-start; background: #FADBDC; border-radius: 16px; padding: 30px; }
+  .menu-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+  .menu-card { display: flex; gap: 0.85rem; align-items: flex-start; background: #FADBDC; border-radius: 16px; padding: 20px; }
   .menu-card-icon { width: 64px; height: 64px; flex: none; object-fit: contain; }
   .menu-card h3 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; color: #000000; margin: 0 0 0.5rem; }
   .menu-card p { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; margin: 0; }
@@ -313,11 +313,12 @@ const stats = [
   .specs-b { background: var(--color-light); }
 
   /* FEATURES 8 */
-  .features8 { background: var(--color-white); }
-  .features8-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; margin-top: 2rem; }
-  .feature8-card { text-align: center; }
+  .features8 { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); }
+  .features8 .section-title { color: #ffffff; }
+  .features8-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .feature8-card { text-align: center; background: #ffffff; border-radius: 12px; padding: 1.75rem 1.25rem; }
   .feature8-card img { width: 64px; height: 64px; margin-inline: auto 0.75rem; object-fit: contain; }
-  .feature8-card h3 { font-size: 1.05rem; margin: 0.75rem 0 0.4rem; }
+  .feature8-card h3 { font-size: 1.05rem; margin: 0.75rem 0 0.4rem; color: #000000; }
   .feature8-card p { font-size: 0.92rem; color: var(--color-muted); }
 
   /* BENEFITS */
