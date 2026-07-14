@@ -248,12 +248,9 @@ const stats = [
   <!-- BROCHURE -->
   <section class="section brochure">
     <div class="container brochure-inner">
-      <img src="/images/product-web.webp" alt="RoboBurger brochure cover" loading="lazy" class="brochure-thumb" />
-      <div>
-        <h2 class="section-title-left">Product brochure</h2>
-        <p class="desc-text">New Updated Robo Burger Brochure</p>
-        <a href="/robo-burger-brochure.pdf" target="_blank" download class="btn btn-primary">Download Now</a>
-      </div>
+      <h2 class="section-title">Product brochure</h2>
+      <img src="/images/brochure-cover.webp" alt="RoboBurger brochure cover" loading="lazy" class="brochure-thumb" />
+      <a href="/robo-burger-brochure.pdf" target="_blank" download class="btn btn-primary brochure-btn">Download Now</a>
     </div>
   </section>
 </BaseLayout>
@@ -381,13 +378,14 @@ const stats = [
   .revolution { background: var(--color-white); text-align: center; }
 
   /* BROCHURE */
-  .brochure { background: var(--color-light); }
-  .brochure-inner { display: grid; grid-template-columns: 0.6fr 1.4fr; gap: 2.5rem; align-items: center; }
-  .brochure-thumb { width: 100%; border-radius: 12px; }
+  .brochure { background: var(--color-white); text-align: center; }
+  .brochure-inner { display: flex; flex-direction: column; align-items: center; }
+  .brochure-thumb { width: 100%; max-width: 420px; border-radius: 8px; margin: 2rem 0 2.5rem; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25); }
+  .brochure-btn { white-space: nowrap; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .kitchen-inner, .plug-go-inner, .specs-menu-inner, .preorder-inner, .brochure-inner, .gen3-inner { grid-template-columns: 1fr; }
+    .kitchen-inner, .plug-go-inner, .specs-menu-inner, .preorder-inner, .gen3-inner { grid-template-columns: 1fr; }
     .menu-cards { grid-template-columns: 1fr; }
     .kitchen-media { order: -1; }
     .features8-grid { grid-template-columns: repeat(2, 1fr); }
