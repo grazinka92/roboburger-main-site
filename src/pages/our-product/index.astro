@@ -2,16 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const specsA = [
-  { label: 'Capacity', value: 'Approximately 70 burgers per refill' },
-  { label: 'Electricity', value: '220V 11A, 110V 22A' },
-  { label: 'Dimensions', value: 'H 233 / W 145 / D 75 cm — H 91.7 / W 57.09 / D 29.53 in' },
+  { label: 'Capacity', value: 'approximately 70 burgers per refill' },
+  { label: 'Electricity', value: '220V 11A<br />110V 22A' },
+  { label: 'Dimensions', value: 'H 233/W145/D75 cm<br />H 91.7 /W 57.09 /D 29.53 in' },
 ];
 
 const menuCards = [
-  { icon: '/images/menu-icon-patty.png', title: '3 Patty Options', text: 'Enabling a diverse menu selection (Such as beef, chicken, plant-based)' },
-  { icon: '/images/menu-icon-topping.png', title: '3 Topping Types', text: 'Topping Dispenser Accommodates 3 varieties, (such as cheese, pickles, fried onion)' },
-  { icon: '/images/menu-icon-sauce.png', title: '6 Sauce Choices', text: 'From classic ketchup to gourmet flavors' },
-  { icon: '/images/menu-icon-bun.png', title: 'Toasted Bun', text: 'Warm and crispy for perfect texture.' },
+  { icon: '/images/menu-icon-patty.svg', title: '3 Patty Options', text: 'Enabling a diverse menu selection (Such as beef, chicken, plant-based)' },
+  { icon: '/images/menu-icon-topping.svg', title: '3 Topping Types', text: 'Topping Dispenser Accommodates 3 varieties, (such as cheese, pickles, fried onion)' },
+  { icon: '/images/menu-icon-sauce.svg', title: '6 Sauce Choices', text: 'From classic ketchup to gourmet flavors' },
+  { icon: '/images/menu-icon-bun.svg', title: 'Toasted Bun', text: 'Warm and crispy for perfect texture.' },
 ];
 
 const features = [
@@ -103,15 +103,19 @@ const stats = [
       <div class="specs-col">
         <h2 class="section-title-left">Product specifications</h2>
         <ul class="spec-list">
-          {specsA.map((s) => (<li><strong>{s.label}:</strong><br />{s.value}</li>))}
+          {specsA.map((s) => (<li><strong>{s.label}:</strong><br /><span set:html={s.value} /></li>))}
         </ul>
       </div>
       <div class="menu-cards">
         {menuCards.map((c) => (
           <div class="menu-card">
-            <img src={c.icon} alt="" aria-hidden="true" class="menu-card-icon" loading="lazy" />
-            <h3>{c.title}</h3>
-            <p>{c.text}</p>
+            <div class="menu-card-icon-wrap">
+              <img src={c.icon} alt="" aria-hidden="true" class="menu-card-icon" loading="lazy" />
+            </div>
+            <div class="menu-card-copy">
+              <h3>{c.title}</h3>
+              <p>{c.text}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -276,18 +280,20 @@ const stats = [
   .plug-go-copy .desc-text { color: #ffffff; margin-bottom: 0; max-height: 260px; overflow: hidden; }
 
   /* PRODUCT SPECIFICATIONS + MENU CUSTOMIZATION */
-  .specs-menu { background: var(--color-white); }
-  .specs-menu-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 1.5rem; align-items: start; }
-  .specs-col .section-title-left { font-size: 42px; font-weight: 800; }
-  .spec-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
-  .spec-list li { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; }
+  .specs-menu { background: var(--color-white); padding: 5rem 0; }
+  .specs-menu-inner { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 3rem; align-items: start; }
+  .specs-col .section-title-left { font-size: 42px; font-weight: 800; line-height: 1.25; }
+  .spec-list { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.5rem; }
+  .spec-list li { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; color: #000000; }
   .spec-list strong { color: #DB0C15; font-weight: 700; }
   .spec-list.centered { text-align: center; max-width: 700px; margin-inline: auto; }
-  .menu-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
-  .menu-card { display: flex; gap: 0.85rem; align-items: flex-start; background: #FADBDC; border-radius: 16px; padding: 20px; }
-  .menu-card-icon { width: 64px; height: 64px; flex: none; object-fit: contain; }
-  .menu-card h3 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; color: #000000; margin: 0 0 0.5rem; }
-  .menu-card p { font-family: 'Poppins', sans-serif; font-size: 16px; color: #000000; margin: 0; }
+  .menu-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+  .menu-card { display: flex; gap: 1.5rem; align-items: center; background: #FADBDC; border-radius: 20px; padding: 30px; }
+  .menu-card-icon-wrap { flex: none; }
+  .menu-card-copy { display: flex; flex-direction: column; }
+  .menu-card-icon { width: 90px; height: 90px; object-fit: contain; }
+  .menu-card h3 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 24px; color: #000000; margin: 0 0 0.5rem; }
+  .menu-card p { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; color: #000000; margin: 0; }
 
   /* 3D VIEW */
   .view3d { background: var(--color-white); text-align: center; }
