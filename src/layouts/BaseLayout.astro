@@ -6,8 +6,9 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  bare?: boolean;
 }
-const { title, description = '' } = Astro.props;
+const { title, description = '', bare = false } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -29,8 +30,6 @@ const { title, description = '' } = Astro.props;
     <!-- Analytics (Google Tag Manager) is added in Task 11 with cookie consent. -->
   </head>
   <body>
-    <Header />
-    <main><slot /></main>
-    <Footer />
+    {bare ? <main><slot /></main> : <><Header /><main><slot /></main><Footer /></>}
   </body>
 </html>
