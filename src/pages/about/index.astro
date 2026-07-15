@@ -205,15 +205,15 @@ const partners = [
 
   .partner-marquee { overflow: hidden; width: 100%; }
   .partner-track {
-    list-style: none; margin: 0; padding: 0; display: flex; width: 1066.667%;
+    list-style: none; margin: 0; padding: 0; display: flex; width: max-content;
     animation: partner-scroll 12.8s steps(16) infinite;
   }
-  .partner-track li { flex: 0 0 calc(100% / 32); display: flex; justify-content: center; align-items: center; padding-inline: 1rem; }
+  .partner-track li { flex: 0 0 220px; width: 220px; display: flex; justify-content: center; align-items: center; padding-inline: 1rem; box-sizing: border-box; }
   .partner-track img { height: 40px; width: auto; max-width: 110px; object-fit: contain; background: #ffffff; border-radius: 6px; padding: 4px 8px; }
   .partner-marquee:hover .partner-track { animation-play-state: paused; }
   @keyframes partner-scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-3520px); }
   }
 
   /* RESPONSIVE */
