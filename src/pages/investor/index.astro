@@ -188,7 +188,10 @@ const stats = [
         </a>
       </div>
     </div>
+  </section>
 
+  <section class="inv-hero-counter">
+    <div class="hero-wave-overlay" aria-hidden="true"></div>
     <div class="container inv-hero-bottom">
       <div class="inv-testimonial">
         <img class="testimonial-photo" src="/images/investor/image__1_-removebg-preview.png" alt="Michael Rubin" loading="lazy" />
@@ -612,7 +615,16 @@ const stats = [
   .inv-mobile-nav a:hover { color: var(--color-red); text-decoration: none; }
 
   /* HERO */
-  .inv-hero { background: #FADBDC; padding: 4rem 0 3rem; }
+  .inv-hero {
+    background-color: #FADBDC;
+    background-image: url('/images/roboburger/hero-wave.png');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    padding: 4rem 0 3rem;
+    position: relative;
+  }
+  .inv-hero .container { position: relative; z-index: 1; }
   .inv-hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
   .inv-hero-copy h1 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.15; color: #000000; margin: 0 0 1rem; }
   .inv-hero-lead { font-family: 'Poppins', sans-serif; font-size: 18px; color: var(--color-red); margin: 0 0 1rem; }
@@ -627,9 +639,16 @@ const stats = [
     background: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center;
     font-size: 18px; padding-left: 3px;
   }
-  .inv-hero-bottom { display: grid; grid-template-columns: 360px 1fr; gap: 3rem; align-items: end; margin-top: 3rem; }
+  .inv-hero-counter { background: #ffffff; padding-bottom: 3rem; position: relative; }
+  .hero-wave-overlay {
+    position: absolute; top: -230px; left: 0; width: 100%; height: 250px;
+    background-image: url('/images/roboburger/hero-wave.png');
+    background-repeat: no-repeat; background-position: bottom center; background-size: cover;
+    z-index: 0; pointer-events: none;
+  }
+  .inv-hero-bottom { position: relative; z-index: 1; display: grid; grid-template-columns: 360px 1fr; gap: 3rem; align-items: end; }
   .inv-testimonial { position: relative; }
-  .testimonial-photo { width: 100%; height: auto; display: block; }
+  .testimonial-photo { width: 100%; height: auto; display: block; margin-top: -130px; }
   .testimonial-card {
     position: absolute; left: 0; bottom: 0; background: #ffffff; border-radius: 12px;
     padding: 0.85rem 1rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); max-width: 280px;
