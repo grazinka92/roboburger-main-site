@@ -701,7 +701,15 @@ const stats = [
   .tam-total p, .tam-total .tam-count, .tam-total .tam-count span { color: #ffffff; }
 
   /* SESSION BANNER */
-  .session-banner { background: linear-gradient(90deg, #1a0000 0%, #C3000C 100%); color: #ffffff; padding: 4rem 0; }
+  .session-banner {
+    background-image: linear-gradient(80deg, #1E0202E6 28%, #4F030600 70%), url('/images/roboburger/session-banner-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 120px 20px;
+    margin-inline: 20px;
+  }
   .session-inner h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.8vw, 2rem); margin: 0 0 1rem; }
   .session-inner p { font-family: 'Poppins', sans-serif; max-width: 480px; margin: 0 0 1.5rem; color: #f0d9d9; }
 
