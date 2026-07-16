@@ -1,0 +1,768 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const navLinks = [
+  { label: 'VISION', href: '#vision' },
+  { label: 'OPPORTUNITY', href: '#opportunity' },
+  { label: 'INNOVATION', href: '#innovation' },
+  { label: 'ACCESS', href: '#access' },
+  { label: 'SWEET ROBO', href: '#sweet-robo' },
+  { label: 'MODEL', href: '#model' },
+  { label: 'ROADMAP', href: '#roadmap' },
+  { label: 'TEAM', href: '#team' },
+  { label: 'FAQ', href: '#faq' },
+];
+
+const heroStats = [
+  { prefix: '+', value: '1,000,000', label: 'Target Locations in the US alone.' },
+  { prefix: '$', value: '100', suffix: '+ Million', label: 'Projected Annual Revenue by 2029' },
+  { prefix: '$', value: '1.5', suffix: 'M Shark Tank Offer', label: 'From Kevin O’Leary and Michael Rubin' },
+];
+
+const opportunityCards = [
+  { title: 'Market Size', lines: ['Americans consume 50B burgers annually', '$868B U.S. fast-food market'] },
+  { title: 'Labor Challenges', lines: ['70% of restaurants face staffing shortages', 'Rising labor costs squeeze profitability'] },
+  { title: 'Consumer Demands', lines: ['Expectations for hot, fresh food anytime', 'Consumers want speed without compromise'] },
+  { title: 'Automation Momentum', lines: ['70% of consumers open to automated service', 'Confidence in tech driven dining is growing'] },
+];
+
+const innovationFeatures = [
+  { icon: '/images/investor/Group-12.png', title: 'Grills in 3.5 Min', text: 'Fresh, hot burgers - never reheated.' },
+  { icon: '/images/investor/Group-12-1.png', title: 'Customizable Menu', text: '3 patty types, 6 sauces, 3 toppings.' },
+  { icon: '/images/investor/Group-12-2.png', title: 'No Kitchen Needed', text: '10sq.ft., plug & play, self-cleaning.' },
+  { icon: '/images/investor/Group-12-3.png', title: 'Interactive Experience', text: 'Touchscreen and live cooking window.' },
+  { icon: '/images/investor/Group-12-4.png', title: 'Smart & Connected', text: 'AI system, built in cameras, remote monitoring app.' },
+  { icon: '/images/investor/Group-12-5.png', title: 'Certified', text: 'NSF, UL, and FDA approved' },
+  { icon: '/images/investor/Group-1000009163.png', title: 'Patented Safety', text: '5 U.S. patents, verified food safety tec' },
+];
+
+const tractionCards = [
+  { title: 'Pilot Success', text: 'Deployed in casinos, retail hubs, and convenience stores with 82% repurchase.' },
+  { title: 'Global Demand', text: 'Over 3,000 purchase requests submitted worldwide, reflecting strong interest.' },
+  { title: 'Enterprise Talks', text: 'Advanced discussions underway with leaders in food, retail, and hospitality.' },
+];
+
+const modelItems = [
+  { title: 'MACHINE SALES', text: 'High-margin units sold to retail, entertainment, and institutional venues' },
+  { title: 'LEASING & FINANCING', text: 'Flexible options generating predictable monthly cash flow' },
+  { title: 'CONSUMABLES', text: 'Recurring revenue from proprietary patties, buns, sauces, and packaging' },
+  { title: 'COMPANY - OPERATED UNITS', text: 'Direct burger sales from high-traffic locations' },
+  { title: 'SOFTWARE SUBSCRIPTIONS', text: 'Monthly fees for remote monitoring, inventory, and performance data' },
+  { title: 'ENTREPRENEUR PARTNERS', text: 'Trained individuals running their own RoboBurger units' },
+  { title: 'SERVICE & PARTS', text: 'Revenue from maintenance contracts and replacement components' },
+  { title: 'CUSTOM - BRANDED MACHINES', text: 'Co-branded units with major food and retail brands' },
+  { title: 'GLOBAL DISTRIBUTION', text: 'Regional partners expanding across international market' },
+];
+
+const tamSectors = [
+  { title: 'Food sector', desc: 'including supermarkets, convenience stores and other food outlets.', count: '206,855' },
+  { title: 'Broad retail sector', desc: 'including department stores, pharmacies, shopping malls and super centers.', count: '74,361' },
+  { title: 'Entertainment & sports sector', desc: 'including amusement, FEC, arenas, sports centers and other venues.', count: '79,695' },
+  { title: 'Food & beverage sector', desc: 'including food courts, fast food, beverage/alcoholic bars.', count: '402,966' },
+  { title: 'Hospitality sector', desc: 'including hotels, resorts, cruises and casinos.', count: '67,134' },
+  { title: 'Institutional sector', desc: 'including hospitals, government facilities, universities and campuses.', count: '116,970' },
+  { title: 'Additional sectors', desc: 'including office buildings, airports, marinas, gas stations.', count: '81,575' },
+];
+
+const socialProofPoints = [
+  { bold: '$7M+ raised,', rest: ' with a $1.5M Shark Tank offer from Kevin O’Leary and Michael Rubin' },
+  { bold: 'Featured in Forbes, TechCrunch, NY Post,', rest: ' and dozens other prominent outlets' },
+  { bold: 'Over 4.4 billion', rest: ' global media impressions' },
+  { bold: 'More than $38M', rest: ' in earned media value' },
+];
+
+const mediaLogos = [
+  '/images/investor/WNBC_4_NY.svg-1.png',
+  '/images/investor/Drew_Barrymore_Show_logo.svg-1.png',
+  '/images/investor/150px-WNYW5-1.png',
+  '/images/investor/The_Talk_logo_2021-1.png',
+  '/images/investor/Today_logo.svg-1.png',
+  '/images/investor/The_Tonight_Show_Starring_Jimmy_Fallon.svg-1.png',
+];
+
+const team = [
+  { name: 'Piny Vind', title: 'President', bio: 'Founder of Sweet Robo, with a track record of building and scaling robotic vending products used in 25+ countries' },
+  { name: 'Dennis Branch', title: 'CRO', bio: 'Revenue leader with $2.4B in startup exits, including roles in AI, biometrics, and fintech; ex-Clearwire (acquired by SoftBank)' },
+  { name: 'Dan Braido', title: 'CTO', bio: 'PhD engineer and former Siemens Principal Engineer with 18+ years of experience in hardware, automation, and systems integration.' },
+  { name: 'Andy Siegel', title: 'CMO', bio: 'Built multiple $100M+ DTC brands in wellness and lifestyle; 40 years in media, marketing, and subscription growth.' },
+  { name: 'Tzlil Berko', title: 'CPO', bio: 'Extensive experience leading large teams and managing complex, high-impact projects across corporate and government sectors.' },
+  { name: 'Audley Wilson', title: 'CEO', bio: 'Former VP of Analytics at top consumer brands and a 12-year restaurant operations veteran, uniquely bridging food and tech.' },
+];
+
+const faqs = [
+  { q: 'What does this investment give me?', a: 'Investing gives you ownership in RoboBurger in the form of shares. As the company grows, your investment may increase in value, and you participate in the company’s long-term success.' },
+  { q: 'What is StartEngine?', a: 'StartEngine is a leading U.S. equity crowdfunding platform that allows individuals to invest in private companies online. It connects startups with investors and manages the legal and financial process of the investment.' },
+  { q: 'What is equity crowdfunding?', a: 'Equity crowdfunding allows individuals to invest in private companies in exchange for ownership (shares). Unlike traditional investing, it gives access to early-stage opportunities that were previously limited to venture capital firms.' },
+  { q: 'Is this a risky investment?', a: 'Yes. Investing in early-stage companies involves risk, including the potential loss of your entire investment. However, it also offers the opportunity for high returns if the company succeeds.' },
+  { q: 'How do I make money from this investment?', a: 'Returns may come from a future acquisition, public offering (IPO), or other liquidity events. In some cases, companies may also distribute profits, but most early-stage investments focus on long-term growth.' },
+  { q: 'Who can invest?', a: 'Both accredited and non-accredited investors can participate, depending on regulations. Investment limits may apply based on income and net worth.' },
+  { q: 'What makes RoboBurger unique?', a: 'RoboBurger is the only machine of its kind that prepares a fresh burger completely autonomously inside a single unit. Protected by patents and purpose-built technology, it replaces an entire fast-food operation with a compact, automated system. RoboBurger is not just a product — it is building the first fully automated burger empire.' },
+  { q: 'Who is Sweet Robo and what is their role?', a: 'Sweet Robo is a global leader in robotic vending machines, with thousands of machines deployed and tens of millions of dollars in sales. Sweet Robo is now an official partner in RoboBurger and will lead large-scale growth, including manufacturing, deployment, and expansion. Their proven expertise in automated retail positions RoboBurger to scale rapidly and confidently.' },
+];
+
+const partners = [
+  '/images/partners/Robo-Burger-Investor-Brief-16.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-17.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-18.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-19.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-20.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-21.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-22.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-23.webp',
+  '/images/partners/Path-397.webp',
+  '/images/partners/Path-438.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-26.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-27.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-29.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-34.webp',
+  '/images/partners/Robo-Burger-Investor-Brief-37.webp',
+  '/images/partners/five-star-parks-attractions-1-300x158-1.webp',
+];
+
+const stats = [
+  { regular: '/images/roboburger/stat1-regular.webp', hover: '/images/roboburger/stat1-hover.webp', text: 'Thousands of machines sold in 25+ countries, serving millions of customers worldwide.' },
+  { regular: '/images/roboburger/stat2-regular.webp', hover: '/images/roboburger/stat2-hover.webp', text: 'Developed a portfolio of 15+ groundbreaking machines and robots, from cotton candy to ice cream and popcorn pushing the limits of automated retail.' },
+  { regular: '/images/roboburger/stat3-regular.webp', hover: '/images/roboburger/stat3-hover.webp', text: 'Powered by dozens of top tier engineers, developers, designers, and tech specialists.' },
+  { regular: '/images/roboburger/stat4-regular.webp', hover: '/images/roboburger/stat4-hover.webp', text: 'Trusted by top global brands, with active partnerships across leading retail, entertainment, and hospitality sectors.' },
+];
+---
+<BaseLayout title="Investor | RoboBurger" description="Invest in RoboBurger — the world's first fully autonomous burger robot disrupting a $868B industry." bare>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar">
+    Invest Now to unlock up to 10% bonus shares
+  </div>
+
+  <!-- CUSTOM HEADER -->
+  <header class="inv-header">
+    <div class="container inv-header-inner">
+      <a href="/" class="inv-logo" aria-label="RoboBurger home">
+        <img src="/logo.png" alt="RoboBurger" width="130" height="34" />
+      </a>
+      <nav class="inv-nav" aria-label="Investor page sections">
+        {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+      <a href="#access" class="btn-invest">INVEST NOW <span class="arrow">&rarr;</span></a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="inv-hero">
+    <div class="container inv-hero-inner">
+      <div class="inv-hero-copy">
+        <h1>The World's First Burger Robot Disrupting a $868B Industry</h1>
+        <p class="inv-hero-lead"><strong>Invest in the Future, Invest in RoboBurger</strong></p>
+        <p class="inv-hero-desc">
+          RoboBurger is the first and only fully autonomous burger machine that grills and serves fresh, hot
+          burgers on demand. Compact, self-cleaning, and certified for food and electrical safety, it operates
+          without staff, kitchen, or ventilation and backed by multiple patents.
+        </p>
+        <a href="#access" class="btn-cta">I'M READY FOR THE FUTURE <span class="arrow">&rarr;</span></a>
+      </div>
+      <div class="inv-hero-media">
+        <img src="/images/investor/s4-Photoroom-1.webp" alt="RoboBurger machine" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="container inv-hero-bottom">
+      <div class="inv-testimonial">
+        <img src="/images/investor/image__1_-removebg-preview.png" alt="Michael Rubin" loading="lazy" />
+        <div>
+          <p class="quote">&ldquo;It could be massive, it could be a billion-dollar business&rdquo;</p>
+          <p class="attribution">- Michael Rubin, Shark Tank</p>
+        </div>
+      </div>
+      <ul class="inv-hero-stats">
+        {heroStats.map((s) => (
+          <li>
+            <p class="stat-value">{s.prefix}{s.value}<span>{s.suffix}</span></p>
+            <p class="stat-label">{s.label}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="inv-section vision-section" id="vision">
+    <div class="container vision-inner">
+      <div class="vision-copy">
+        <p class="eyebrow">VISION</p>
+        <h2>This Is the End of the Fast Food Kitchen</h2>
+        <p class="desc-text">
+          We're making fast food as you know it obsolete. We're turning empty corners into high-profit food
+          destinations. We're creating a future where fresh, hot food is delivered reliably, 24/7, with zero labor
+          headaches. We've patented the technology. We've proven demand. And now you have the opportunity to
+          invest at a critical moment and join us as we scale.
+        </p>
+        <a href="#access" class="btn-cta">INVEST FROM $500 <span class="arrow">&rarr;</span></a>
+      </div>
+      <div class="vision-media">
+        <img src="/images/investor/s4-Photoroom-1.webp" alt="RoboBurger machine" loading="lazy" class="vision-machine" />
+        <img src="/images/investor/robo-burger-chief2-1.jpg" alt="" loading="lazy" class="vision-chef" />
+      </div>
+    </div>
+  </section>
+
+  <!-- OPPORTUNITY -->
+  <section class="inv-section" id="opportunity">
+    <div class="container">
+      <div class="inv-section-head">
+        <p class="eyebrow">OPPORTUNITY</p>
+        <h2>A $868B Market Starved For Disruption</h2>
+        <p class="desc-text">
+          Americans eat 50 billion burgers every year. But the $868B fast food industry is facing a fundamental
+          shift. Traditional restaurants can't keep pace with evolving consumer demands or operational challenges.
+        </p>
+      </div>
+      <div class="opportunity-grid">
+        {opportunityCards.map((c) => (
+          <div class="opportunity-card">
+            <h3>{c.title}</h3>
+            {c.lines.map((l) => <p>{l}</p>)}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INNOVATION -->
+  <section class="inv-section" id="innovation">
+    <div class="container innovation-inner">
+      <div class="innovation-media">
+        <img src="/images/investor/s4-Photoroom-1.webp" alt="" loading="lazy" />
+        <img src="/images/investor/0001_Select-2.png" alt="" loading="lazy" />
+        <img src="/images/investor/7_RoboBurger_Newport-1.png" alt="" loading="lazy" />
+        <img src="/images/investor/im.webp" alt="" loading="lazy" />
+      </div>
+      <div class="innovation-copy">
+        <p class="eyebrow">INNOVATION</p>
+        <h2>A Fully Automated Burger Kitchen in Just 10 Square Feet</h2>
+        <ul class="innovation-list">
+          {innovationFeatures.map((f) => (
+            <li>
+              <img src={f.icon} alt="" aria-hidden="true" loading="lazy" />
+              <div>
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS / GET EQUITY -->
+  <section class="access-banner" id="access">
+    <div class="container">
+      <h2>Join the Company Disrupting the Multi-Billion Dollar Burger Industry</h2>
+      <p class="access-sub">Starting from $500</p>
+      <p class="access-sub2">Own equity at $5 per share</p>
+      <p class="access-note">*Invest securely through StartEngine*</p>
+      <a href="https://www.startengine.com/" target="_blank" rel="noopener" class="btn-cta btn-cta-light">GET EQUITY <span class="arrow">&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- TRACTION -->
+  <section class="inv-section">
+    <div class="container traction-inner">
+      <div class="traction-media">
+        <img src="/images/investor/Asset-1@4x-100-1.png" alt="" loading="lazy" />
+        <img src="/images/investor/Asset-1@4x-100-2.png" alt="" loading="lazy" />
+      </div>
+      <div class="traction-copy">
+        <p class="eyebrow">TRACTION</p>
+        <h2>Built to Scale. Proven in the Real World.</h2>
+        <p class="traction-headline">PROVEN IN THE REAL WORLD WITH 3,000+ PURCHASE REQUESTS ALREADY</p>
+        <p class="desc-text">
+          After years of R&amp;D and real world testing, you're investing in a company that's done the hard part
+          building a machine the world actually wants.
+        </p>
+        <a href="#access" class="btn-cta">INVEST NOW <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="traction-grid">
+        {tractionCards.map((c) => (
+          <div class="traction-card">
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SWEET ROBO (reused from About page) -->
+  <section class="sweet-robo" id="sweet-robo">
+    <div class="container sweet-robo-inner">
+      <div class="sweet-robo-media">
+        <img src="/images/about/sweet-robo-collage.png" alt="Sweet Robo vending machines" loading="lazy" />
+      </div>
+      <div class="sweet-robo-copy">
+        <p class="eyebrow">SWEET ROBO</p>
+        <h2>New Partnership with Sweet Robo</h2>
+        <p class="desc-text">
+          RoboBurger has joined forces with Sweet Robo the largest leader in robotics vending. This partnership
+          brings proven scale, deep technical resources, and a global track record in automated vending.
+        </p>
+        <a href="#access" class="btn-cta">INVEST NOW <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="stats-wrap">
+      <div class="stats-card">
+        <ul class="stat-grid">
+          {stats.map((s) => (
+            <li class="stat-hover-col">
+              <span class="stat-icon-wrap">
+                <img src={s.regular} alt="" aria-hidden="true" class="stat-icon-regular" loading="lazy" />
+                <img src={s.hover} alt="" aria-hidden="true" class="stat-icon-hover" loading="lazy" />
+              </span>
+              <p>{s.text}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div class="scale-banner-inner">
+          <div class="scale-text-block">
+            <p class="scale-text">
+              <strong>3 warehouses, 4 offices, 5 manufacturing facilities</strong>, and over <strong>200 global employees</strong> all
+              ready to scale RoboBurger to the next level.
+            </p>
+          </div>
+          <div class="scale-logo-block">
+            <div class="partner-marquee">
+              <ul class="partner-track">
+                {[...partners, ...partners].map((src) => (
+                  <li><img src={src} alt="" loading="lazy" /></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE CTA -->
+  <section class="email-cta">
+    <div class="container">
+      <h2>Access the Full Business Plan</h2>
+      <p>Drop your email to get instant access to our investor brief, business overview, and next gen machine rollout strategy</p>
+      <form class="email-form" onsubmit="event.preventDefault();">
+        <input type="email" required placeholder="Enter your email" aria-label="Email address" />
+        <button type="submit" class="btn-cta">I'M READY FOR THE FUTURE <span class="arrow">&rarr;</span></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- BUSINESS MODEL -->
+  <section class="inv-section" id="model">
+    <div class="container">
+      <div class="inv-section-head">
+        <p class="eyebrow">BUSINESS MODEL</p>
+        <h2>How RoboBurger Makes Money</h2>
+        <p class="desc-text">A multi-channel model designed for recurring revenue and global growth.</p>
+      </div>
+      <ul class="model-list">
+        {modelItems.map((m) => (
+          <li>
+            <img src="/images/investor/ok.svg" alt="" aria-hidden="true" />
+            <div>
+              <h3>{m.title}</h3>
+              <p>{m.text}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="inv-section" id="roadmap">
+    <div class="container">
+      <div class="inv-section-head">
+        <p class="eyebrow">ROADMAP</p>
+        <h2>Our Plan for $100M Annual Revenue by 2029</h2>
+        <p class="desc-text">
+          RoboBurger is poised to unlock drastically improved economics with our Gen 3 robot, featuring 2X burger
+          capacity, faster cooking speeds, and 47% cheaper unit production. Your investment will help launch this
+          next-gen tech and scale to 6,900+ units deployed by 2029
+        </p>
+      </div>
+      <h3 class="tam-title">Total Addressable Market by Vertical</h3>
+      <p class="tam-source">
+        Below is a breakdown of our estimated TAM by vertical and region. Sources: U.S. Census Bureau County
+        Business Patterns (CBP 2022 &amp; 2023).
+      </p>
+      <ul class="tam-list">
+        {tamSectors.map((t) => (
+          <li>
+            <p><strong>{t.title}</strong> {t.desc}</p>
+            <p class="tam-count">{t.count}<span> Businesses</span></p>
+          </li>
+        ))}
+        <li class="tam-total">
+          <p>Total Market Potential:</p>
+          <p class="tam-count">1,029,556<span> Businesses</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BOOK A SESSION -->
+  <section class="session-banner">
+    <div class="container session-inner">
+      <div>
+        <h2>Considering an investment of $5,000+?</h2>
+        <p>Book a private session with our team for a deeper look at the company and opportunity.</p>
+        <a href="https://calendly.com/bruce-sweetrobo/30min" target="_blank" rel="noopener" class="btn-cta btn-cta-light">BOOK A SESSION <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="inv-section social-proof">
+    <div class="container">
+      <p class="eyebrow">SOCIAL PROOF</p>
+      <h2>Sharks, Media, and Diners Keep Biting</h2>
+      <p class="desc-text">
+        RoboBurger has already caught the attention of both the press and prominent backers, and the momentum
+        just keeps on building.
+      </p>
+      <ul class="social-proof-list">
+        {socialProofPoints.map((p) => (
+          <li>
+            <img src="/images/investor/ok.svg" alt="" aria-hidden="true" />
+            <p><strong>{p.bold}</strong>{p.rest}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="media-logos">
+        {mediaLogos.map((src) => <img src={src} alt="" loading="lazy" />)}
+      </div>
+      <div class="quotes-row">
+        <div class="quote-card">
+          <img src="/images/investor/image__1_-removebg-preview.png" alt="Michael Rubin" loading="lazy" />
+          <p class="quote">&ldquo;This is a big idea!&rdquo;</p>
+          <p class="attribution">- Michael Rubin</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote">&ldquo;The burger is really good!&rdquo;</p>
+          <p class="attribution">-Lori Greiner</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="inv-section" id="team">
+    <div class="container">
+      <div class="inv-section-head">
+        <p class="eyebrow">OUR LEADERSHIP TEAM</p>
+        <h2>Built by Experts in Robotics, Food, and Scalable Tech</h2>
+      </div>
+      <ul class="team-grid">
+        {team.map((m) => (
+          <li>
+            <span class="team-avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#ffffff" /><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="#ffffff" /></svg>
+            </span>
+            <h3>{m.name}</h3>
+            <p class="team-title">{m.title}</p>
+            <p class="team-bio">{m.bio}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="inv-section" id="faq">
+    <div class="container">
+      <div class="inv-section-head">
+        <p class="eyebrow">FAQS</p>
+        <h2>Everything You Need to Know</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM FOOTER -->
+  <footer class="inv-footer">
+    <div class="container inv-footer-inner">
+      <img src="/logo.png" alt="RoboBurger" class="inv-footer-logo" width="140" height="37" />
+      <ul class="inv-footer-contact">
+        <li><a href="https://roboburger.com/">WWW.ROBOBURGER.COM</a></li>
+        <li><a href="mailto:investors@roboburger.com">INVESTORS@ROBOBURGER.COM</a></li>
+        <li><a href="tel:+18668053330">(866) 805-3330</a></li>
+        <li>132 32ND STREET, BROOKLYN, NY 11232, USA</li>
+      </ul>
+      <p class="inv-footer-legal">
+        This Reg CF offering is made available through StartEngine Primary, LLC, member FINRA/SIPC.
+        This investment is speculative, illiquid, and involves a high degree of risk, including the possible
+        loss of your entire investment.
+      </p>
+    </div>
+    <div class="inv-footer-bottom">
+      <p>&copy; <strong>ROBOBURGER</strong>. ALL RIGHTS RESERVED {new Date().getFullYear()}</p>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  * { box-sizing: border-box; }
+  .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+  .eyebrow { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.05em; color: var(--color-red); margin: 0 0 0.5rem; }
+  .desc-text { font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 1.6; color: #3a3a3a; }
+  .arrow { display: inline-block; margin-left: 0.4em; }
+
+  .btn-cta {
+    display: inline-flex; align-items: center; gap: 0.5em;
+    background: var(--color-red); color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+    padding: 0.9em 1.75em; border-radius: 100px; text-decoration: none;
+  }
+  .btn-cta:hover { background: #b8090f; text-decoration: none; }
+  .btn-cta-light { background: #ffffff; color: var(--color-red); }
+  .btn-cta-light:hover { background: #f2f2f2; }
+
+  /* ANNOUNCEMENT BAR */
+  .announce-bar {
+    background: #080322; color: #ffffff; text-align: center; font-family: 'Poppins', sans-serif;
+    font-size: 13px; font-weight: 600; padding: 0.6rem 1rem;
+  }
+
+  /* CUSTOM HEADER */
+  .inv-header { background: #ffffff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+  .inv-header-inner { display: flex; align-items: center; gap: 2rem; min-height: 84px; }
+  .inv-logo { flex: none; display: block; }
+  .inv-logo img { height: 40px; width: auto; }
+  .inv-nav { flex: 1; display: flex; justify-content: center; gap: 1.75rem; flex-wrap: wrap; }
+  .inv-nav a { font-family: 'Poppins', sans-serif; font-size: 14px; color: #000000; }
+  .inv-nav a:hover { color: var(--color-red); text-decoration: none; }
+  .btn-invest {
+    flex: none; display: inline-flex; align-items: center; gap: 0.5em;
+    background: var(--color-red); color: #ffffff; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 14px;
+    padding: 0.7em 1.5em; border-radius: 100px;
+  }
+  .btn-invest:hover { background: #b8090f; text-decoration: none; }
+
+  /* HERO */
+  .inv-hero { background: #FADBDC; padding: 4rem 0 3rem; }
+  .inv-hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+  .inv-hero-copy h1 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.15; color: #000000; margin: 0 0 1rem; }
+  .inv-hero-lead { font-family: 'Poppins', sans-serif; font-size: 18px; color: var(--color-red); margin: 0 0 1rem; }
+  .inv-hero-desc { margin-bottom: 1.75rem; }
+  .inv-hero-media img { width: 100%; max-width: 340px; height: auto; display: block; margin-inline: auto; }
+  .inv-hero-bottom { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: center; margin-top: 3rem; }
+  .inv-testimonial { display: flex; align-items: center; gap: 1rem; }
+  .inv-testimonial img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex: none; }
+  .inv-testimonial .quote { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; margin: 0; }
+  .inv-testimonial .attribution { font-family: 'Poppins', sans-serif; font-size: 13px; color: #666; margin: 0.25rem 0 0; }
+  .inv-hero-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .inv-hero-stats .stat-value { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 28px; color: var(--color-red); margin: 0; }
+  .inv-hero-stats .stat-value span { font-size: 16px; }
+  .inv-hero-stats .stat-label { font-family: 'Poppins', sans-serif; font-size: 13px; color: #444; margin: 0.25rem 0 0; }
+
+  .inv-section { padding: 5rem 0; background: #ffffff; }
+  .inv-section-head { max-width: 760px; margin: 0 auto 2.5rem; text-align: center; }
+  .inv-section-head h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); color: #000000; margin: 0 0 1rem; }
+  .inv-section-head .desc-text { text-align: center; }
+
+  /* VISION */
+  .vision-section { background: linear-gradient(180deg, #C3000C 0%, #410101 100%); border-radius: 0 0 60px 60px; padding: 5rem 0 7rem; }
+  .vision-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .vision-copy .eyebrow { color: #ffcccc; }
+  .vision-copy h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); color: #ffffff; margin: 0 0 1rem; }
+  .vision-copy .desc-text { color: #f0d9d9; margin-bottom: 1.5rem; }
+  .vision-media { position: relative; }
+  .vision-media img { border-radius: 12px; }
+  .vision-machine { width: 65%; display: block; margin-inline: auto; }
+  .vision-chef { width: 45%; position: absolute; bottom: -1.5rem; right: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+
+  /* OPPORTUNITY */
+  .opportunity-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .opportunity-card { background: var(--color-red); color: #ffffff; border-radius: 12px; padding: 1.75rem; text-align: center; }
+  .opportunity-card h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 0.75rem; }
+  .opportunity-card p { font-family: 'Poppins', sans-serif; font-size: 14px; margin: 0.25rem 0; }
+
+  /* INNOVATION */
+  .innovation-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .innovation-media { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .innovation-media video, .innovation-media img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; background: #111; }
+  .innovation-copy h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); color: #000000; margin: 0 0 1.5rem; }
+  .innovation-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+  .innovation-list li { display: flex; gap: 1rem; align-items: flex-start; }
+  .innovation-list img { width: 40px; height: 40px; flex: none; object-fit: contain; }
+  .innovation-list h3 { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; margin: 0 0 0.2rem; }
+  .innovation-list p { font-family: 'Poppins', sans-serif; font-size: 14px; color: #555; margin: 0; }
+
+  /* ACCESS */
+  .access-banner { background: var(--color-red); color: #ffffff; text-align: center; padding: 4rem 0; }
+  .access-banner h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.8vw, 2rem); max-width: 760px; margin: 0 auto 1.25rem; }
+  .access-sub { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; margin: 0; }
+  .access-sub2 { font-family: 'Poppins', sans-serif; font-size: 16px; margin: 0.25rem 0; }
+  .access-note { font-family: 'Poppins', sans-serif; font-size: 13px; opacity: 0.85; margin: 0 0 1.5rem; }
+
+  /* TRACTION */
+  .traction-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3rem; align-items: center; margin-bottom: 3rem; }
+  .traction-media { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .traction-media img { width: 100%; border-radius: 12px; object-fit: contain; }
+  .traction-copy h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); color: #000000; margin: 0 0 1rem; }
+  .traction-headline { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; color: var(--color-red); margin: 0 0 1rem; }
+  .traction-copy .desc-text { margin-bottom: 1.5rem; }
+  .traction-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .traction-card { background: var(--color-red); color: #ffffff; border-radius: 12px; padding: 1.75rem; text-align: center; }
+  .traction-card h3 { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 0.75rem; }
+  .traction-card p { font-family: 'Poppins', sans-serif; font-size: 14px; margin: 0; }
+
+  /* SWEET ROBO (reused About page styles) */
+  .sweet-robo { background-image: url('/images/about/sweet-robo-bg.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 5rem 0; }
+  .sweet-robo-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; padding-bottom: 5rem; }
+  .sweet-robo-media img { width: 100%; object-fit: contain; }
+  .sweet-robo-copy .eyebrow { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 500; color: #834175; margin: 0 0 0.5rem; }
+  .sweet-robo-copy h2 { font-family: 'Poppins', sans-serif; font-size: 42px; font-weight: 700; color: #834175; margin: 0 0 1rem; line-height: 1.2; }
+  .sweet-robo-copy .desc-text { font-family: 'Poppins', sans-serif; font-size: 20px; line-height: 1.6; color: #323232; margin-bottom: 1.5rem; }
+
+  .stats-wrap { max-width: 1400px; margin-inline: auto; padding-inline: 1.25rem; }
+  .stats-card { background: linear-gradient(189deg, #E54D6F 0%, #62195C 100%); border-radius: 30px; padding: 3.75rem; }
+  .stat-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .stat-grid li { text-align: center; background: rgba(255, 255, 255, 0.11); border-radius: 20px; padding: 1.75rem; transition: background 0.3s ease; }
+  .stat-grid li:hover { background: #ffffff; cursor: pointer; }
+  .stat-grid li:hover p { color: #000000; }
+  .stat-icon-wrap { position: relative; display: block; margin: 0 auto 1rem; width: 80px; height: 80px; }
+  .stat-icon-wrap img { position: absolute; top: 0; left: 0; width: 80px; height: 80px; transition: opacity 0.3s ease; }
+  .stat-icon-hover { opacity: 0; }
+  .stat-grid li:hover .stat-icon-regular { opacity: 0; }
+  .stat-grid li:hover .stat-icon-hover { opacity: 1; }
+  .stat-grid p { font-family: var(--font-body); font-size: 20px; font-weight: 600; line-height: 1.3; color: #ffffff; margin: 0; transition: color 0.3s ease; }
+  .scale-banner-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; margin-top: 1.5rem; }
+  .scale-text-block { background: rgba(255, 255, 255, 0.11); border-radius: 30px 0 0 30px; padding: 2.5rem; display: flex; align-items: center; }
+  .scale-logo-block { background: #ffffff; border-radius: 0 30px 30px 0; padding: 2.5rem; display: flex; align-items: center; min-width: 0; overflow: hidden; }
+  .scale-text { font-family: 'Poppins', sans-serif; font-size: 26px; color: #ffffff; margin: 0; line-height: 1.4; }
+  .partner-marquee { overflow: hidden; width: 100%; }
+  .partner-track { list-style: none; margin: 0; padding: 0; display: flex; width: max-content; animation: partner-scroll 12.8s ease-in-out infinite; }
+  .partner-track li { flex: 0 0 260px; width: 260px; display: flex; justify-content: center; align-items: center; padding-inline: 1rem; box-sizing: border-box; }
+  .partner-track img { height: 60px; width: auto; max-width: 160px; object-fit: contain; }
+  .partner-track img[src*="Robo-Burger-Investor-Brief-22"] { height: 90px; max-width: 220px; }
+  .partner-track img[src*="Robo-Burger-Investor-Brief-21"] { height: 90px; max-width: 220px; }
+  .partner-marquee:hover .partner-track { animation-play-state: paused; }
+  @keyframes partner-scroll {
+    0.0000%, 2.3438% { transform: translateX(0.0000%); }
+    6.2500%, 8.5938% { transform: translateX(-3.1250%); }
+    12.5000%, 14.8438% { transform: translateX(-6.2500%); }
+    18.7500%, 21.0938% { transform: translateX(-9.3750%); }
+    25.0000%, 27.3438% { transform: translateX(-12.5000%); }
+    31.2500%, 33.5938% { transform: translateX(-15.6250%); }
+    37.5000%, 39.8438% { transform: translateX(-18.7500%); }
+    43.7500%, 46.0938% { transform: translateX(-21.8750%); }
+    50.0000%, 52.3438% { transform: translateX(-25.0000%); }
+    56.2500%, 58.5938% { transform: translateX(-28.1250%); }
+    62.5000%, 64.8438% { transform: translateX(-31.2500%); }
+    68.7500%, 71.0938% { transform: translateX(-34.3750%); }
+    75.0000%, 77.3438% { transform: translateX(-37.5000%); }
+    81.2500%, 83.5938% { transform: translateX(-40.6250%); }
+    87.5000%, 89.8438% { transform: translateX(-43.7500%); }
+    93.7500%, 96.0938% { transform: translateX(-46.8750%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* EMAIL CTA */
+  .email-cta { background: #FADBDC; padding: 4rem 0; text-align: center; }
+  .email-cta h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 1rem; }
+  .email-cta p { max-width: 600px; margin: 0 auto 1.5rem; font-family: 'Poppins', sans-serif; color: #444; }
+  .email-form { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .email-form input { font-family: 'Poppins', sans-serif; font-size: 14px; padding: 0.9em 1.25em; border-radius: 100px; border: 1px solid #ccc; min-width: 260px; }
+
+  /* BUSINESS MODEL */
+  .model-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 3rem; }
+  .model-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+  .model-list img { width: 24px; height: 24px; flex: none; margin-top: 0.2rem; }
+  .model-list h3 { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.02em; margin: 0 0 0.25rem; color: #000000; }
+  .model-list p { font-family: 'Poppins', sans-serif; font-size: 14px; color: #555; margin: 0; }
+
+  /* ROADMAP / TAM */
+  .tam-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 20px; text-align: center; margin: 0 0 0.5rem; }
+  .tam-source { text-align: center; max-width: 700px; margin: 0 auto 2rem; font-family: 'Poppins', sans-serif; font-size: 14px; color: #666; }
+  .tam-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; max-width: 900px; margin-inline: auto; }
+  .tam-list li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; background: #f7f7f7; border-radius: 8px; padding: 1rem 1.25rem; }
+  .tam-list li p:first-child { font-family: 'Poppins', sans-serif; font-size: 14px; color: #333; margin: 0; }
+  .tam-count { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; white-space: nowrap; margin: 0; }
+  .tam-count span { font-weight: 400; font-size: 13px; }
+  .tam-list li.tam-total { background: var(--color-red); }
+  .tam-total p, .tam-total .tam-count, .tam-total .tam-count span { color: #ffffff; }
+
+  /* SESSION BANNER */
+  .session-banner { background: linear-gradient(90deg, #1a0000 0%, #C3000C 100%); color: #ffffff; padding: 4rem 0; }
+  .session-inner h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.8vw, 2rem); margin: 0 0 1rem; }
+  .session-inner p { font-family: 'Poppins', sans-serif; max-width: 480px; margin: 0 0 1.5rem; color: #f0d9d9; }
+
+  /* SOCIAL PROOF */
+  .social-proof { background: #FADBDC; }
+  .social-proof .eyebrow, .social-proof h2, .social-proof .desc-text { text-align: left; margin-inline: 0; }
+  .social-proof h2 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 1rem; }
+  .social-proof-list { list-style: none; margin: 2rem 0; padding: 0; display: grid; gap: 1rem; max-width: 700px; }
+  .social-proof-list li { display: flex; gap: 0.75rem; align-items: flex-start; }
+  .social-proof-list img { width: 22px; height: 22px; flex: none; margin-top: 0.15rem; }
+  .social-proof-list p { font-family: 'Poppins', sans-serif; font-size: 15px; margin: 0; color: #333; }
+  .media-logos { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin: 2rem 0; }
+  .media-logos img { height: 36px; width: auto; object-fit: contain; }
+  .quotes-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+  .quote-card { text-align: center; }
+  .quote-card img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin: 0 auto 0.75rem; display: block; }
+  .quote-card .quote { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; margin: 0; }
+  .quote-card .attribution { font-family: 'Poppins', sans-serif; font-size: 13px; color: #666; margin: 0.25rem 0 0; }
+
+  /* TEAM */
+  .team-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .team-grid li { text-align: center; }
+  .team-avatar { display: flex; align-items: center; justify-content: center; width: 90px; height: 90px; border-radius: 50%; background: #2a2a2a; margin: 0 auto 1rem; }
+  .team-avatar svg { width: 44px; height: 44px; }
+  .team-grid h3 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16px; margin: 0 0 0.15rem; }
+  .team-title { font-family: 'Poppins', sans-serif; font-size: 13px; color: var(--color-red); font-weight: 600; margin: 0 0 0.5rem; }
+  .team-bio { font-family: 'Poppins', sans-serif; font-size: 13px; color: #555; margin: 0; }
+
+  /* FAQ */
+  .faq-list { max-width: 800px; margin: 0 auto; display: grid; gap: 0.75rem; }
+  .faq-item { background: #f7f7f7; border-radius: 8px; padding: 1.25rem 1.5rem; }
+  .faq-item summary { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; list-style: none; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; float: right; font-weight: 700; }
+  .faq-item[open] summary::after { content: '\2212'; }
+  .faq-item p { font-family: 'Poppins', sans-serif; font-size: 14px; color: #555; margin: 0.75rem 0 0; }
+
+  /* CUSTOM FOOTER */
+  .inv-footer {
+    background-image: linear-gradient(180deg, rgba(65,0,0,0.55), rgba(65,0,0,0.55)), url('/images/about/sweet-robo-bg.webp');
+    background-size: cover; background-position: center; padding: 4rem 0 0; color: #ffffff; text-align: center;
+  }
+  .inv-footer-inner { display: grid; gap: 1.5rem; padding-bottom: 3rem; }
+  .inv-footer-logo { filter: brightness(0) invert(1); margin: 0 auto; }
+  .inv-footer-contact { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; font-size: 14px; }
+  .inv-footer-contact a { color: #ffffff; }
+  .inv-footer-legal { max-width: 700px; margin: 0 auto; font-family: 'Poppins', sans-serif; font-size: 12px; color: #f0d9d9; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2); }
+  .inv-footer-bottom { background: rgba(0,0,0,0.35); padding: 1rem; font-family: 'Poppins', sans-serif; font-size: 13px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .inv-nav { display: none; }
+    .inv-hero-inner, .vision-inner, .innovation-inner, .traction-inner, .sweet-robo-inner { grid-template-columns: 1fr; }
+    .inv-hero-bottom { grid-template-columns: 1fr; }
+    .opportunity-grid, .traction-grid, .model-list, .team-grid, .quotes-row { grid-template-columns: 1fr; }
+    .inv-hero-stats { grid-template-columns: 1fr; }
+    .scale-banner-inner { grid-template-columns: 1fr; }
+    .scale-text-block { border-radius: 30px 30px 0 0; }
+    .scale-logo-block { border-radius: 0 0 30px 30px; }
+  }
+  @media (max-width: 520px) {
+    .stat-grid { grid-template-columns: 1fr; }
+  }
+</style>
