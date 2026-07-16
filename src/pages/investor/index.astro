@@ -142,8 +142,31 @@ const stats = [
         {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
       </nav>
       <a href="#access" class="btn-invest">INVEST NOW <span class="arrow">&rarr;</span></a>
+      <button type="button" class="inv-menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+    <nav class="inv-mobile-nav" aria-label="Investor page sections (mobile)">
+      {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
   </header>
+
+  <script>
+    const toggle = document.querySelector('.inv-menu-toggle');
+    const mobileNav = document.querySelector('.inv-mobile-nav');
+    toggle?.addEventListener('click', () => {
+      const open = mobileNav?.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.classList.toggle('is-open', open);
+    });
+    mobileNav?.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.remove('is-open');
+        toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.classList.remove('is-open');
+      });
+    });
+  </script>
 
   <!-- HERO -->
   <section class="inv-hero">
@@ -562,6 +585,30 @@ const stats = [
     padding: 0.5em 0.5em 0.5em 1.5em; border-radius: 100px;
   }
   .btn-invest:hover { background: #b8090f; text-decoration: none; }
+  .inv-menu-toggle {
+    display: none; flex: none; width: 44px; height: 44px; border-radius: 50%;
+    border: 2px solid var(--color-red); background: #ffffff; cursor: pointer;
+    align-items: center; justify-content: center; padding: 0;
+  }
+  .inv-menu-toggle span {
+    display: block; width: 20px; height: 2px; background: var(--color-red); border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .inv-menu-toggle span + span { margin-top: 5px; }
+  .inv-menu-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .inv-menu-toggle.is-open span:nth-child(2) { opacity: 0; }
+  .inv-menu-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .inv-mobile-nav {
+    display: none; flex-direction: column; background: #ffffff; border-top: 1px solid #eee;
+    padding: 0.5rem 1.25rem 1rem;
+  }
+  .inv-mobile-nav.is-open { display: flex; }
+  .inv-mobile-nav a {
+    font-family: 'Poppins', sans-serif; font-size: 15px; color: #000000; padding: 0.75rem 0;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .inv-mobile-nav a:last-child { border-bottom: none; }
+  .inv-mobile-nav a:hover { color: var(--color-red); text-decoration: none; }
 
   /* HERO */
   .inv-hero { background: #FADBDC; padding: 4rem 0 3rem; }
@@ -779,6 +826,7 @@ const stats = [
   /* RESPONSIVE */
   @media (max-width: 900px) {
     .inv-nav { display: none; }
+    .inv-menu-toggle { display: flex; margin-left: auto; }
     .inv-hero-inner, .vision-inner, .innovation-inner, .traction-inner, .sweet-robo-inner { grid-template-columns: 1fr; }
     .inv-hero-bottom { grid-template-columns: 1fr; }
     .opportunity-grid, .traction-grid, .model-list, .team-grid, .quotes-row { grid-template-columns: 1fr; }
