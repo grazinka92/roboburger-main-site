@@ -562,15 +562,16 @@ const DISCLAIMER_IMGS =
   .h64 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 64px; line-height: 64px; color: #fff; }
   .h68 { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 68px; line-height: 68px; text-align: center; color: #000; }
   .h-center { text-align: center; }
-  .note { font-size: 16px; line-height: 24px; }
+  .note { font-size: 16px; line-height: 24px; font-style: italic; }
+  .vision .note, .social .small-note { text-align: center; }
   .note-light { color: #F5DCDD; }
   .note-dark { color: #000; font-style: italic; text-align: center; }
   .jakarta { font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif; }
   .ico { width: 66px; height: 66px; }
   .ico-sm { width: 48px; height: 48px; }
 
-  .wave { position: absolute; left: 0; right: 0; bottom: -1px; overflow: hidden; line-height: 0; transform: rotate(180deg); z-index: 3; }
-  .wave svg { display: block; position: relative; left: 50%; width: calc(120% + 1.3px); height: 100%; transform: translateX(-50%); }
+  .wave { position: absolute; left: 0; right: 0; bottom: -1px; overflow: hidden; line-height: 0; transform: rotate(180deg); z-index: 1; }
+  .wave svg { display: block; position: relative; left: 50%; width: calc(120% + 1.3px); height: 100%; transform: translateX(-50%) rotateY(180deg); }
   .wave-hero { height: 85px; }
   .wave-hero svg { width: calc(100% + 1.3px); }
   .wave-tall { height: 99px; }
