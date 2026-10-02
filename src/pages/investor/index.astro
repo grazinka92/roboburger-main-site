@@ -183,7 +183,7 @@ const DISCLAIMER_IMGS =
   <section class="sec revolution" style="--z:15">
     <div class="wrap">
       <h1 class="h68"><span class="red">IT'S A </span>REVOLUTION</h1>
-      <div class="revolution-gap"></div>
+      <div class="revolution-split" aria-hidden="true"><div class="rs rs-a"></div><div class="rs rs-b"></div></div>
       <p class="note note-dark jakarta">{DISCLAIMER_IMGS}</p>
       <h2 class="h68 h68-b">A FULLY AUTOMATED <span class="red">BURGER KITCHEN IN JUST 10 sq ft</span></h2>
       <div class="video-cover">
@@ -221,6 +221,7 @@ const DISCLAIMER_IMGS =
       <h2 class="h-center h42">The Problem</h2>
       <h4 class="problem-text">The traditional fast-food industry is hitting a wall. Rising labor costs, massive staff shortages, and the high overhead of maintaining a full-scale kitchen are eating away at profit margins. Restaurants are struggling to stay consistent, fast, and profitable.</h4>
       <div class="solution-card">
+        <div class="solution-img" aria-hidden="true"></div>
         <h2 class="h42">The Solution</h2>
         <p>RoboBurger is the answer to the <a href="https://finance.yahoo.com/news/fast-food-industry-report-2026-150600688.html" target="_blank" rel="noopener">$868B industry’s</a> biggest headache. We have condensed an entire commercial kitchen into a compact, fully autonomous, 7-patented machine. It doesn’t just reheat food; it grills fresh, chef-quality burgers from scratch in minutes—with zero human error, and a 24/7 uptime.</p>
         <button type="button" class="btn js-open-brief">Download our investor brief</button>
@@ -621,7 +622,10 @@ const DISCLAIMER_IMGS =
 
   /* ---------- 4 revolution ---------- */
   .revolution { background: #fff; padding: 150px 20px 80px; }
-  .revolution-gap { height: 425px; margin-top: 70px; }
+  .revolution-split { display: grid; grid-template-columns: 1fr 1fr; height: 425px; margin-top: 70px; }
+  .rs { background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; }
+  .rs-a { background-image: url('/images/roboburger/invest-revolution-a.webp'); border-radius: 20px 0 0 20px; }
+  .rs-b { background-image: url('/images/roboburger/invest-revolution-b.webp'); border-radius: 0 20px 20px 0; }
   .revolution .note { margin: 40px 0 0; }
   .revolution .video-cover + .note { margin-top: 21px; }
   .revolution .h68-b { margin-top: 104px; }
@@ -646,7 +650,9 @@ const DISCLAIMER_IMGS =
     background: #fff url('/images/roboburger/invest-bg-frame125.webp') no-repeat 50% 100% / cover;
     display: flex; flex-direction: column; align-items: flex-start; width: 100%;
   }
-  .solution-card > * { max-width: 530px; }
+  .solution-card { position: relative; }
+  .solution-card > :not(.solution-img) { max-width: 530px; }
+  .solution-img { position: absolute; top: 40px; right: 40px; width: calc(50% - 40px); height: 391px; max-width: 530px; border-radius: 20px; background: url('/images/roboburger/invest-solution.webp') no-repeat 0 0 / cover; }
   .solution-card p { color: #fff; margin-top: 30px; }
   .solution-card .btn { margin-top: 34px; }
   .solution-card a { color: #fff; text-decoration: underline; }
@@ -782,7 +788,7 @@ const DISCLAIMER_IMGS =
     .market-row, .about-wrap, .social-row { grid-template-columns: 1fr; }
     .cols-3 { grid-template-columns: 1fr; }
     .strat-grid { grid-template-columns: 1fr 1fr; }
-    .revolution-gap { height: 120px; }
+    .revolution-split { height: 260px; }
   }
 
   /* ---------- mobile ---------- */
@@ -804,7 +810,11 @@ const DISCLAIMER_IMGS =
     .pill-line { flex-direction: column; }
     .pill-line h4, .money-card h4 { font-size: 22px; line-height: 28px; }
     .col-title.red { font-size: 22px; line-height: 28px; }
-    .revolution-gap { display: none; }
+    .revolution-split { grid-template-columns: 1fr; height: auto; }
+    .rs { height: 200px; }
+    .rs-a { border-radius: 20px 20px 0 0; }
+    .rs-b { border-radius: 0 0 20px 20px; }
+    .solution-img { position: static; width: 100%; max-width: none; height: 240px; order: 5; margin-top: 24px; }
     .wave-tall, .wave-xtall, .wave-tall2 { height: 60px; }
     .car-slide { flex-basis: calc(100% / 2); }
     .carousel-media .car-slide { flex-basis: calc((100% - 22px) / 2); }
