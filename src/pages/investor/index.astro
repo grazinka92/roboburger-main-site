@@ -390,6 +390,13 @@ const DISCLAIMER_IMGS =
     </div>
   </section>
 
+  <div class="m-spacer" aria-hidden="true"></div>
+
+  <!-- Mobile-only sticky CTA (same as the original) -->
+  <div class="m-cta">
+    <button type="button" class="btn js-open-brief">Download our investor brief</button>
+  </div>
+
   <!-- FOOTER -->
   <footer class="inv-footer">
     <div class="foot-wrap">
@@ -535,7 +542,6 @@ const DISCLAIMER_IMGS =
     background: #FFDD54; color: #000; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; line-height: 15px;
     text-transform: capitalize; padding: 15px 20px; border-radius: 30px; text-decoration: none; transition: filter .2s;
   }
-  .btn:hover { filter: brightness(.95); }
   .btn-full { width: 100%; border-radius: 5px; }
   .btn-row { display: flex; justify-content: center; margin-top: 34px; }
 
@@ -766,6 +772,11 @@ const DISCLAIMER_IMGS =
   .foot-copy p:last-child { margin-bottom: 0; }
   .foot-copy a { color: #808080; text-decoration: none; }
 
+  /* ---------- mobile sticky CTA ---------- */
+  .m-spacer { display: none; height: 50px; background: #fff; }
+  .m-cta { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 20px; }
+  .m-cta .btn { width: 100%; }
+
   /* ---------- dialogs ---------- */
   .inv-dialog { border: 0; padding: 50px; border-radius: 20px; width: min(640px, 92vw); max-height: 92vh; overflow: auto; color: #000; }
   .inv-dialog::backdrop { background: rgba(0,0,0,.6); }
@@ -784,6 +795,7 @@ const DISCLAIMER_IMGS =
 
   /* ---------- tablet ---------- */
   @media (max-width: 1024px) {
+    .m-spacer { display: block; }
     .h68 { font-size: 52px; line-height: 54px; }
     .h64 { font-size: 48px; line-height: 52px; }
     .hero-row { grid-template-columns: 1fr; gap: 30px; }
@@ -797,18 +809,27 @@ const DISCLAIMER_IMGS =
 
   /* ---------- mobile ---------- */
   @media (max-width: 767px) {
+    .m-cta { display: block; }
     p { font-size: 18px; line-height: 27px; }
-    .h42 { font-size: 32px; line-height: 36px; }
-    .h46 { font-size: 34px; line-height: 38px; }
-    .h64 { font-size: 36px; line-height: 40px; }
-    .h68 { font-size: 36px; line-height: 40px; }
-    .hero-copy h1 { font-size: 32px; line-height: 36px; }
+    .h42, .h46, .h64, .h68 { text-align: center; }
+    .h42 { font-size: 42px; line-height: 42px; }
+    .market h2.h46 { font-size: 32px; line-height: 32px; }
+    .market h1.h46 { font-size: 50px; line-height: 50px; }
+    .h64 { font-size: 64px; line-height: 64px; }
+    .h68 { font-size: 42px; line-height: 42px; }
+    .h68.h68-b { font-size: 34px; line-height: 34px; }
+    .hero-copy { align-items: center; text-align: center; }
+    .hero-copy h1 { font-size: 47px; line-height: 47px; }
+    .about-copy, .solution-card { align-items: center; text-align: center; }
+    .about-copy p, .solution-card p, .invest p { text-align: center; }
+    .money-card { text-align: center; }
+    .money-card .ico { margin-left: auto; margin-right: auto; }
+    .problem-text { font-size: 24px; line-height: 33.6px; }
     .inv-header { border-radius: 0 0 24px 24px; }
     .inv-header-inner { grid-template-columns: auto 1fr; }
     .inv-eq-link { display: none; }
     .inv-header .btn { font-size: 13px; padding: 12px 14px; }
     .sec { padding-left: 20px; padding-right: 20px; }
-    .problem-text { font-size: 22px; line-height: 32px; }
     .solution-card { padding: 28px; border-radius: 28px; }
     .scale-grid, .strat-grid { grid-template-columns: 1fr; }
     .pill-line { flex-direction: column; }
